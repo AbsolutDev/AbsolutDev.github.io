@@ -1,0 +1,256 @@
+/* General Styling & Style Reset */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: hsl(60, 56%, 91%);
+  padding: 0;
+  margin: 0;
+}
+
+/* Elements Styling */
+a {
+  color: hsl(60, 6%, 40%);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* HEADER Styling */
+header {
+  box-sizing: border-box;
+  height: 7rem;
+  width: 100%;
+}
+
+h1 {
+  display: block;
+  box-sizing: border-box;
+  width: 98%;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding-left: .6rem;
+  background-color: hsl(60, 6%, 40%);
+  font-family: "Arial Black", Helvetica, sans-serif;
+  font-size: 3rem;
+  color: hsl(60, 56%, 91%);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  color: hsl(60, 6%, 68%);
+  font-size: 1.5rem;
+  height: 3rem;
+  padding: 0 1%;
+  justify-content: left;
+}
+
+.nav-link {
+  cursor: pointer;
+  transition: color 0.8s ease-out;
+}
+
+nav span {
+  color: hsl(60, 6%, 68%);
+  margin: 0.5rem;
+}
+
+nav span:hover {
+  text-decoration: underline;
+}
+
+/* MAIN section styling */
+main {
+  display: flex;
+  height: 20rem;
+  padding: 1rem;
+  padding-left: 1%;
+  margin-bottom: 4rem;
+  font-size: 1.3rem;
+  color: hsl(60, 6%, 40%);
+  line-height: 1.2em;
+}
+
+.content {
+  position: absolute;
+  overflow: auto;
+  box-sizing: border-box;
+  height: 20rem;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  margin-top: 0.5rem;
+  padding: 0 1.5rem;
+}
+
+.content.fullw {
+  box-sizing: border-box;
+  text-indent: 2rem;
+  width: 99%;
+}
+
+.container {
+  display: flex;
+}
+
+.left-side {
+  padding-right: 1rem;
+}
+
+/* Page specific styling */
+#page0 {
+  opacity: 1;
+  padding-top: 3rem;
+}
+
+#page1 {
+  justify-content: center;
+}
+
+#page1 .left-side {
+  text-indent: 2rem;
+  max-width: 75%;
+}
+
+#page1 .right-side {
+  max-width: 25%;
+  min-width: 180px;
+}
+
+#page1 .right-side img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+#page2 {
+  padding-top: 2rem;
+}
+
+#page2 .container {
+  flex-wrap: wrap;
+}
+
+.skills {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: left;
+  min-width: 35%;
+}
+
+.skills img {
+  max-height: 6rem;
+  width: auto;
+  margin: 1rem;
+  flex-shrink: 1;
+}
+
+#page3 {
+  min-width: 99%;
+}
+
+#page3 ul {
+  list-style: square;
+  text-indent: 0;
+}
+
+#page3 li {
+  margin: 1rem;
+}
+
+/* FOOTER styling */
+footer {
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 4rem;
+  margin: 0;
+  border-top: hsl(60, 6%, 68%) 1px solid;
+  padding: .5rem;
+  color: hsl(60, 6%, 68%);
+  background-color: hsl(60, 56%, 91%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+footer h2 {
+  margin: 0;
+  font-size: .8rem;
+}
+
+footer .container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5rem;
+}
+
+footer img {
+  height: 1.5rem;
+  width: auto;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  #page1 .left-side {
+    font-size: 1rem;
+  }
+
+  .skills img {
+    max-height: 5rem;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding-left: 0;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  nav {
+    justify-content: space-around;
+  }
+
+  #page0 {
+    padding-top: 0;
+  }
+
+  #page1 .left-side {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  #page1.container {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    align-content: flex-end;
+    min-width: 0;
+  }
+
+  #page2 {
+    padding-top: 0;
+  }
+
+  .skills {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .skills img {
+    max-height: 4rem;
+    width: auto;
+    margin: 0.5rem;
+  }
+}
