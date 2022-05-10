@@ -20,6 +20,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 /* HEADER Styling */
 header {
   box-sizing: border-box;
@@ -106,6 +110,20 @@ main {
 #page0 {
   opacity: 1;
   padding-top: 3rem;
+}
+
+#page0 img {
+  display: block;
+  height: 6rem;
+  width: auto;
+  margin: 0 auto 2rem;
+}
+
+#page0 div {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2rem;
 }
 
 #page1 {
@@ -225,6 +243,17 @@ footer img {
 
   #page0 {
     padding-top: 0;
+  }
+
+  #page0 img {
+    height: 5rem;
+    margin-top: 2rem;
+  }
+
+  #page0 div {
+    width: 90%;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   #page1 .left-side {
