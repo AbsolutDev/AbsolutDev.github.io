@@ -194,7 +194,7 @@
             HTML • CSS • JavaScript • React/Redux • React Testing • REST API
           </div>
           <div class="project-links">
-            <span class="screenshot-link quickr">screenshots</span>&#160&#160&#160<span><a href="." target="github">source code</a></span>&#160&#160&#160<span><a href="." target="_blank">site</a></span>
+            <span class="screenshot-link quickr">screenshots</span>&#160&#160&#160<span><a href="https://github.com/AbsolutDev/reddit-client" target="github">source code</a></span>&#160&#160&#160<span><a href="https://celadon-malabi-4b4a22.netlify.app/" target="_blank">site</a></span>
           </div>
         </div>
         <div class="project">
@@ -208,7 +208,7 @@
             HTML • CSS • JavaScript
           </div>
           <div class="project-links">
-            <span class="screenshot-link projportf">screenshots</span>&#160&#160&#160<span><a href="." target="github">source code</a></span>
+            <span><a href="https://github.com/AbsolutDev/AbsolutDev.github.io" target="github">source code</a></span>
           </div>
         </div>
         <div id="project-infopad" class="project">
@@ -222,7 +222,7 @@
             Processing • REST API
           </div>
           <div class="project-links">
-            <span class="screenshot-link infopad">screenshots</span>&#160&#160&#160<span><a href="." target="github">source code</a></span>
+            <span class="screenshot-link infopad">screenshots</span>&#160&#160&#160<span><a href="https://github.com/AbsolutDev/infoPad" target="github">source code</a></span>
           </div>
         </div>
         <div id="project-ampoker" class="project">
@@ -230,13 +230,13 @@
             American Poker Game
           </div>
           <div class="project-description">
-            Replica of the once very popular cabinet game.
+            Replica of the once very popular arcade game.
           </div>
           <div class="project-skills">
             <span>Processing</span>
           </div>
           <div class="project-links">
-            <span class="screenshot-link ampoker">screenshots</span>&#160&#160&#160<span>source code</span>
+            <span class="screenshot-link ampoker">screenshots</span>&#160&#160&#160<span><a href="https://github.com/AbsolutDev/American-Poker-Game" target="github">source code</a></span>
           </div>
         </div>
       </div>
@@ -245,47 +245,165 @@
       </div>
     </div>
     <div id="contact-page" class="page hidden">
-      Contact
+      <div id="contact-form-container">
+        <div class="title-banner">
+          <span>Message Me</span>
+        </div>
+        <form id="contact-form" action="sendmessage.php" method="POST">
+          <div id="form-name-container">
+            <label for="form-name">Name:</label>
+            <input id="form-name" name="name" type="text">
+          </div>
+          
+          <div id="form-email-container">
+            <label for="form-email">E-mail:</label>
+            <input id="form-email" name="email" type="email" placeholder="required" required>
+          </div>
+          
+          <div id="form-subject-container">
+            <label for="form-subject">Subject:</label>
+            <input id="form-subject" name="subject" type="text">
+          </div>
+          
+          <div id="form-message-container">
+            <label for="form-message">Message:</label>
+            <textarea id="form-message" name="message" placeholder="required" required></textarea>
+          </div>
+
+          <div id="form-submit-container">
+            <input id="form-submit" type="submit" value="send">
+          </div>
+        </form>
+      </div>
+      <div id="contact-links-container">
+        <div class="title-banner">
+          <span>Contact links title</span>
+        </div>
+        <div id="contact-links-title">
+          Contact links
+        </div>
+      </div>
+      
     </div>
   </main>
   <footer id="contact-section">
-    <a href="mailto: giliescu77@gmail.com"><img src="./img/email.png" /></a>
+    <a href="mailto: absolutdev.io@gmail.com"><img src="./img/email.png" /></a>
     <a href="https://www.linkedin.com/in/giliescu/"><img src="./img/linkedin.png" /></a>
     <a href="https://github.com/AbsolutDev"><img src="./img/github.png" /></a>
   </footer>
   <div id="screenshots-overlay">
+    <div id="quickr-screenshots" class="screenshots-container">
+      <div class="screenshot active">
+        <img src="./img/screenshots/quickR1.jpg" />
+        <div class="screenshot-text">
+          A single page app to browse the latest posts from the most popular subreddits.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR2.jpg" />
+        <div class="screenshot-text">
+          The user can switch to dark mode display theme.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR3.jpg" />
+        <div class="screenshot-text">
+          Post comments are displayed hierarchically.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR4.jpg" />
+        <div class="screenshot-text">
+          Ability for users to share posts.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR5.jpg" />
+        <div class="screenshot-text">
+          Loading animation while asynchronous queries are pending.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR6.png" />
+        <div class="screenshot-text">
+          Adaptive design caters to different screen types and resolutions.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/quickR7.png" />
+        <div class="screenshot-text">
+          Adaptive design caters to different screen types and resolutions.
+        </div>
+      </div>
+    </div>
     <div id="infopad-screenshots" class="screenshots-container">
       <div class="screenshot active">
         <img src="./img/screenshots/infoPad1.jpg" />
+        <div class="screenshot-text">
+          Information dashboard displaying time, date, calendar, news, weather and trains schedule.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/infoPad2.jpg" />
+        <div class="screenshot-text">
+          Smart speaker control module.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/infoPad3.jpg" />
+        <div class="screenshot-text">
+          Quick access to other apps and web services.
+        </div>
+      </div>
+      <div class="screenshot right">
+        <img src="./img/screenshots/infoPad4.jpg" />
+        <div class="screenshot-text">
+          Connection monitoring for network devices and services.
+        </div>
       </div>
     </div>
     <div id="ampoker-screenshots" class="screenshots-container">
       <div class="screenshot active">
         <img src="./img/screenshots/ampkr1.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr2.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr3.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr4.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr5.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr6.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr7.png" />
+        <div class="screenshot-text">
+          Replica of the once very popular arcade game.
+        </div>
       </div>
     </div>
     <div id="screenshots-close">

@@ -13,6 +13,63 @@ body {
   height: 100vh;
 }
 
+/* Reused components */
+label {
+  display: block;
+  margin: 0;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 0 1em 1em 0;
+  padding: .4em .2em;
+  font-size: 0.8em;
+  border-radius: 3px;
+  border: 1px hsl(0, 0%, 35%) solid;
+  resize: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: hsl(0, 100%, 90%)
+}
+
+input:hover,
+textarea:hover {
+  border: 2px hsl(0, 0%, 35%) solid;
+}
+
+input:invalid,
+textarea:invalid {
+  border: 1px hsl(0, 100%, 50%) solid;
+}
+
+input:invalid:hover,
+input:invalid:focus,
+textarea:invalid:hover,
+textarea:invalid:focus {
+  background-color: hsl(0, 100%, 96%);
+}
+
+.title-banner {
+  position: relative;
+  width: 60vw;
+  height: 10rem;
+  background-size: cover;
+  background-position: center;
+  margin: 2rem 0 3rem;
+}
+
+.title-banner span {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.2rem;
+  color:hsl(0, 0%, 100%);
+  font-size: 4rem;
+  font-weight: 700;
+}
+
 /* Header Section */
 header {
   position: fixed;
@@ -171,7 +228,6 @@ header {
 /** Home Page **/
 
 main {
-  bbackground-color: lightblue;
   position: relative;
   display: flex;
   align-items: center;
@@ -370,24 +426,6 @@ em.blue {
   font-size: 2rem;
 }
 
-.title-banner {
-  position: relative;
-  width: 60vw;
-  height: 10rem;
-  background-size: cover;
-  background-position: center;
-  margin: 2rem 0 3rem;
-}
-
-.title-banner span {
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.2rem;
-  color:hsl(0, 0%, 100%);
-  font-size: 4rem;
-  font-weight: 700;
-}
-
 #certifications {
   margin-bottom: 1rem;
 }
@@ -397,7 +435,6 @@ em.blue {
 }
 
 .certification {
-  bbackground-color: lightgrey;
   margin: 4rem 1rem;
   border-bottom: 1px grey solid;
   font-size: 1.6rem;
@@ -478,7 +515,6 @@ em.blue {
 }
 
 .project-title {
-  bborder: 1px black solid;
   font-size: 1.4em;
   font-weight: 700;
   padding: .2em 0;
@@ -533,14 +569,63 @@ em.blue {
 }
 
 #projects-footer {
-  bborder: 1px black solid;
   margin: 2em 0 1em;
   font-size: 2em;
 }
 
 /** Contact Page **/
 #contact-page {
+  bbackground-color: yellow;
   display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem 20% 0;
+  font-size: 2rem;
+
+}
+
+#contact-form-container {
+  bbackground-color: pink;
+}
+
+#contact-form-container .title-banner {
+  border: 1px black solid;
+}
+
+#contact-form-container .title-banner span {
+  color: hsl(0, 0%, 20%);
+}
+
+#contact-form {
+  bborder: 1px black solid;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2rem;
+}
+
+#form-name-container {
+  bborder: 1px black solid;
+  display: inline-block;
+  width: 60%;  
+  padding-right: 1em;
+}
+
+#form-email-container {
+  bborder: 1px black solid;
+  display: inline-block;
+  width: 40%;
+}
+
+#form-subject-container {
+  width: 100%;
+}
+
+#form-message-container {
+  width: 100%;
+}
+
+#form-message {
+  height: 6em;
 }
 
 /* Footer */
@@ -589,6 +674,8 @@ em.blue {
     padding: 0 12px;
   }
 }
+
+/* Screenshots Overlay */
 
 #screenshots-overlay {
   display: none;
@@ -673,10 +760,10 @@ em.blue {
 .screenshots-container {
   display: none;
   position: relative;
-  left: 5%;
-  top: 10%;
-  height: 80%;
-  width: 90%;
+  left: 4%;
+  top: 4%;
+  height: 96%;
+  width: 92%;
   overflow-x: hidden;
   opacity: 0;
   transition: opacity 1s;
@@ -687,16 +774,32 @@ em.blue {
   top: 0;
   width: 100%;
   height: 100%;
-  display: inline-flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   transition: left 1s;
 }
 
 .screenshot img {
+  display: block;
   border-radius: 1.5rem;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 88%;
+  max-height: 88%;
+  margin: 0 auto;
+}
+
+.screenshot-text {
+  background-color: hsl(0, 0%, 90%);
+  display: block;
+  box-sizing: content-box;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1.4rem;
+  text-align: center;
+  padding: .3em 1em;
+  font-size: 1.6em;
+  color: hsl(0, 0%, 20%);
+  border-radius: 12px;
 }
 
 .screenshot.active {
@@ -710,29 +813,3 @@ em.blue {
 .screenshot.right {
   left: 100vw;
 }
-
-/*
-
-.screenshot {
-  position: fixed;
-  width: 100vw;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  left: 0;
-}
-
-.screenshot.active {
-  left: 0;
-}
-
-.screenshot.right {
-  left: 100vw;
-}
-
-.screenshot img {
-  
-}
-
-
-*/

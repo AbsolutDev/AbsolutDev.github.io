@@ -7,6 +7,11 @@ document.getElementById("screenshots-close").onclick = screenshotCloseClickEvent
 document.getElementById("screenshots-skip-left").onclick = screenshotsSkipLeftClickEventHandler;
 document.getElementById("screenshots-skip-right").onclick = screenshotsSkipRightClickEventHandler;
 
+//
+document.getElementById("form-submit").onclick = (event) => {
+  //event.preventDefault();
+}
+
 //Global variables assignment
 let pages = document.getElementsByClassName("page");
 let screenshotPages = document.getElementsByClassName("screenshots-overlay");
