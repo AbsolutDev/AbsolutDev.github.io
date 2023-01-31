@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@200;400&family=Racing+Sans+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <script src="./app.js" defer></script>
+  <script src="./sendmail.js" defer type=”module”></script>
   <title>Gabriel Iliescu - Front End Developer</title>
 </head>
 <body>
@@ -249,7 +250,7 @@
         <div class="title-banner">
           <span>Message Me</span>
         </div>
-        <form id="contact-form" action="./sendmessage.php" method="POST">
+        <form id="contact-form" method="POST">
           <div id="form-name-container">
             <label for="form-name">Name:</label>
             <input id="form-name" name="name" type="text">

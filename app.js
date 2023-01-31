@@ -9,7 +9,8 @@ document.getElementById("screenshots-skip-right").onclick = screenshotsSkipRight
 
 //
 document.getElementById("form-submit").onclick = (event) => {
-  //event.preventDefault();
+  event.preventDefault();
+  alert(document.getElementById("form-name").value);
 }
 
 //Global variables assignment

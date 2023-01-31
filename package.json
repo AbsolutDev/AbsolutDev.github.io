@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "dotenv": "^16.0.3"
+  },
+  "name": "absolutdev.github.io",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbsolutDev/AbsolutDev.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbsolutDev/AbsolutDev.github.io/issues"
+  },
+  "homepage": "https://github.com/AbsolutDev/AbsolutDev.github.io#readme"
+}
