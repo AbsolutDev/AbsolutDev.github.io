@@ -404,8 +404,14 @@ em.blue {
   display: none;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 1rem 20% 0;
+  padding: 0 20%;
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 1600px) {
+  #skills-page {
+    padding: 0 10%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -420,7 +426,7 @@ em.blue {
   height: 12rem;
   background-size: cover;
   background-position: top;
-  margin: 2rem 0 3rem;
+  margin-bottom: 2rem;
 }
 
 .title-banner span {
@@ -442,10 +448,6 @@ em.blue {
 }
 
 @media only screen and (max-width: 1600px) {
-  #skills-page {
-    padding: 1rem 10% 0;
-  }
-
   .title-banner {
     height: 10rem;
   }
@@ -454,7 +456,6 @@ em.blue {
 @media only screen and (max-width: 1024px) {
   .title-banner {
     height: 8rem;
-    margin: 1rem 0 2rem;
   }
 }
 
@@ -468,7 +469,7 @@ em.blue {
 }
 
 .certification {
-  margin: 4rem 1rem;
+  margin: 3rem 1rem;
   border-bottom: 1px grey solid;
   font-size: .8em;
 }
@@ -547,12 +548,13 @@ em.blue {
   font-size: 2rem;
   margin: 3rem 10%;
   padding: 0 1rem;
+  background-color: hsl(195, 53%, 98%);
+  border-radius: 10px 10px 0 0;
   border-bottom: 1px hsl(195, 53%, 60%) solid;
 }
 
 .project:hover {
   background-color: hsl(195, 53%, 96%);
-  border-radius: 10px 10px 0 0;
 }
 
 .project-title {
@@ -600,6 +602,7 @@ em.blue {
 }
 
 .project-skills {
+  color: hsl(240, 100%, 70%);
   font-size: .6em;
   margin-top: 10px;
 }
@@ -639,6 +642,7 @@ em.blue {
 #contact-page {
   display: none;
   justify-content: space-between;
+  width: 100%;
   padding: 1rem 10% 0;
   font-size: 2rem;
 }
@@ -735,12 +739,14 @@ em.blue {
 
   #contact-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
   }
 
   .contact-link {
     flex-wrap: wrap;
     justify-content: center;
+    width: 33%;
   }
 
   .contact-link img {
@@ -965,7 +971,7 @@ em.blue {
 
 .screenshot img {
   display: block;
-  border-radius: 1.5rem;
+  border-radius: .5rem;
   align-self: flex-end;
   max-width: 88%;
   max-height: 88%;
@@ -981,14 +987,11 @@ em.blue {
 }
 
 .screenshot-text {
-  background-color: hsl(0, 0%, 90%);
-  box-sizing: content-box;
   max-width: 80%;
   text-align: center;
-  padding: .3em 1em;
+  padding: .3em 0;
   font-size: 1.6em;
-  color: hsl(0, 0%, 20%);
-  border-radius: .4em;
+  color:hsl(0, 0%, 90%);
 }
 
 @media only screen and (max-width: 1600px) {
