@@ -113,11 +113,11 @@ header {
 
 @media only screen and (max-width: 1024px) {
   #name {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   #title {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
 
@@ -196,7 +196,7 @@ header {
 
 @media only screen and (max-width: 768px) {
   .nav-menu-title {
-    font-size: .8em;
+    font-size: .7em;
     width: 5em;
 
   }
@@ -300,8 +300,8 @@ em.blue {
   }
 
   #portrait-photo {
-    width: 18rem;
-    height: 18rem;
+    width: 15rem;
+    height: 15rem;
   }
 }
 
@@ -311,8 +311,8 @@ em.blue {
   }
 
   #portrait-photo {
-    width: 14rem;
-    height: 14rem;
+    width: 12rem;
+    height: 12rem;
   }
 }
 
@@ -338,6 +338,11 @@ em.blue {
 
   #home-page-right div {
     text-align: center;
+  }
+
+  #portrait-photo {
+    width: 10rem;
+    height: 10rem;
   }
 }
 
