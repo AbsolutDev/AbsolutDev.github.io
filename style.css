@@ -426,7 +426,7 @@ em.blue {
   height: 12rem;
   background-size: cover;
   background-position: top;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .title-banner span {
@@ -462,6 +462,7 @@ em.blue {
 @media only screen and (max-width: 768px) {
   .title-banner {
     height: 6rem;
+    margin: 0;
   }
   .title-banner span {
     font-size: 1.4em;
