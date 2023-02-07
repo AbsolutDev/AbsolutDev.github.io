@@ -747,7 +747,7 @@ em.blue {
   .contact-link {
     flex-wrap: wrap;
     justify-content: center;
-    width: 33%;
+    width: auto;
   }
 
   .contact-link img {
