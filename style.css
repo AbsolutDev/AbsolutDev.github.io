@@ -52,24 +52,6 @@ textarea:invalid:focus {
   background-color: hsl(0, 100%, 96%);
 }
 
-.title-banner {
-  position: relative;
-  width: 60vw;
-  height: 10rem;
-  background-size: cover;
-  background-position: center;
-  margin: 2rem 0 3rem;
-}
-
-.title-banner span {
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.2rem;
-  color:hsl(0, 0%, 100%);
-  font-size: 4rem;
-  font-weight: 700;
-}
-
 /* Header Section */
 header {
   position: fixed;
@@ -128,7 +110,8 @@ header {
   z-index: 6;
 }
 
-@media only screen and (max-width: 1366px) {
+
+@media only screen and (max-width: 1024px) {
   #name {
     font-size: 2em;
   }
@@ -137,6 +120,7 @@ header {
     font-size: 1.5em;
   }
 }
+
 
 #nav-menu {
   display: flex;
@@ -196,7 +180,7 @@ header {
   color: hsl(240, 100%, 27%);
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1024px) {
   .nav-menu-title {
     font-size: 1em;
     width: 5em;
@@ -210,15 +194,15 @@ header {
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 768px) {
   .nav-menu-title {
-    font-size: 0.7em;
-    width: 4.8em;
+    font-size: .8em;
+    width: 5em;
 
   }
   .nav-menu-icon {
-    width: .7em;
-    height: .7em;
+    width: .5em;
+    height: .5em;
     margin-right: 0.2em;
     margin-bottom: .1em;
   }
@@ -238,7 +222,7 @@ main {
   width: 100%;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1024px) {
   main {
     padding-top: 8rem;
   }
@@ -312,39 +296,27 @@ em.blue {
 
 @media only screen and (max-width: 1600px) {
   #home-page-right div {
-    font-size: 0.8em;
-  }
-
-  #portrait-photo {
-    width: 20rem;
-    height: 20rem;
-  }
-}
-
-@media only screen and (max-width: 1366px) {
-
-  #home-page-right div {
     font-size: 0.7em;
   }
 
   #portrait-photo {
-    width:  16rem;
-    height: 16rem;
+    width: 18rem;
+    height: 18rem;
   }
 }
 
-@media only screen and (max-width: 1024px), (max-height: 600px) {
+@media only screen and (max-width: 1024px) {
   #home-page-right div {
-    font-size: 0.5em;
+    font-size: 0.6em;
   }
 
   #portrait-photo {
-    width:  12rem;
-    height: 12rem;
+    width: 14rem;
+    height: 14rem;
   }
 }
 
-@media only screen and (max-width: 700px), (orientation: portrait) {
+@media only screen and (max-width: 768px),  (max-width: 1024px) and (orientation: portrait) {
   #home-page {
     flex-wrap: wrap;
     padding-top: 1rem;
@@ -371,15 +343,19 @@ em.blue {
 
 /** About Page **/
 #about-page {
-  border: 1px black solid;
   display: none;
   flex-wrap: wrap;
-  padding: 4rem 20% 0 20%;
+  padding: 4rem 14% 0 14%;
   font-size: 2rem;
+  line-height: 1.6em;
+}
+
+.about-page-content:first-child {
+  font-size: 1.2em;
 }
 
 .about-page-content {
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 
 #family-photo {
@@ -394,26 +370,27 @@ em.blue {
 }
 
 @media only screen and (max-width: 1600px) {
-  #about-page {
-    padding-top: 2rem;
-    font-size: 1.6rem;
-  }
-
   #family-photo {
     width: 15rem;
     height: 15rem;
   }
 }
 
-@media only screen and (max-width: 1024px), (max-height: 600px) {
+@media only screen and (max-width: 1024px) {
   #about-page {
     padding: 2rem 10% 0 10%;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
+}
 
+@media only screen and (max-width: 768px) {
+  #about-page {
+    padding: 2rem 5% 0 5%;
+    font-size: 1.2rem;
+  }
   #family-photo {
-    width: 12rem;
-    height: 12rem;
+    width: 8rem;
+    height: 8rem;
   }
 }
 
@@ -426,18 +403,81 @@ em.blue {
   font-size: 2rem;
 }
 
+@media only screen and (max-width: 1024px) {
+  #skills-page {
+    font-size: 1.6rem;
+  }
+}
+
+.title-banner {
+  position: relative;
+  width: auto;
+  height: 12rem;
+  background-size: cover;
+  background-position: top;
+  margin: 2rem 0 3rem;
+}
+
+.title-banner span {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.2rem;
+  color:hsl(0, 0%, 100%);
+  font-size: 2em;
+  font-weight: 700;
+}
+
 #certifications {
   margin-bottom: 1rem;
 }
 
 #certifications-title {
-  background-image: url('./img/skills_certs.jpg');
+  background-image: url('./img/banner-certs.jpg');
+  fill-opacity: 1;
+}
+
+@media only screen and (max-width: 1600px) {
+  #skills-page {
+    padding: 1rem 10% 0;
+  }
+
+  .title-banner {
+    height: 10rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .title-banner {
+    height: 8rem;
+    margin: 1rem 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .title-banner {
+    height: 6rem;
+  }
+  .title-banner span {
+    font-size: 1.4em;
+  }
 }
 
 .certification {
   margin: 4rem 1rem;
   border-bottom: 1px grey solid;
-  font-size: 1.6rem;
+  font-size: .8em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .certification {
+    margin: 2rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .certification {
+    text-align: center;
+  }
 }
 
 .cert-title {
@@ -445,47 +485,43 @@ em.blue {
   font-weight: 700;
 }
 
-.cert-skills {
-  padding-inline-start: 0;
-}
-
-.cert-skills li {
-  display: inline-block;
-}
-
-.cert-skills li+li::before {
-  content: "•";
-  padding-right: 5px;
-}
-
 .cert-about {
   color: hsl(0, 0%, 60%);
   font-size: 0.8em;
+  padding-top: 0.3em;
+}
+
+@media only screen and (max-width: 768px) {
+  .cert-skills {
+    font-size: 0.7em;
+    padding-top: 0.4em;
+  }
+
+  .cert-about {
+    font-size: 0.6em;
+  }
 }
 
 #expertise-title {
-  background-image: url('./img/skills_certs.jpg');
+  background-image: url('./img/banner-skills.jpg');
 }
 
 .exp-skills {
-  margin: 4rem 1rem;
-  padding-inline-start: 5px;
+  margin: 3rem 1rem;
   text-align: center;
   background-color: hsl(0, 0%, 98%);
+  font-size: 1em;
 }
 
 .exp-skills:hover {
   background-color: hsl(0, 0%, 95%);
 }
 
-.exp-skills li {
-  display: inline-block;
-  color: hsl(0, 0%, 0%);
-}
-
-.exp-skills li+li::before {
-  content: "•";
-  padding-right: 5px;
+@media only screen and (max-width: 768px) {
+  .exp-skills {
+    margin: 2rem 1rem;
+    font-size: 0.8em;
+  }
 }
 
 /** Portfolio Page **/
@@ -520,6 +556,14 @@ em.blue {
   padding: .2em 0;
 }
 
+@media only screen and (max-width: 1024px) {
+  .project {
+    margin: 0.5rem 10%;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+
 #project-quickr .project-title {
   font-size: 1.6em;
   font-weight: 400;
@@ -535,9 +579,15 @@ em.blue {
   color:hsl(0, 100%, 50%);
 }
 
-#project-infopad .project-title img{
+#project-infopad .project-title img {
   background-color: black;
   height: 8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #project-infopad .project-title img {
+    height: 4rem;
+  }
 }
 
 .project-description {
@@ -571,47 +621,174 @@ em.blue {
 #projects-footer {
   margin: 2em 0 1em;
   font-size: 2em;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  #projects-footer {
+    font-size: 1.4em;
+  }
 }
 
 /** Contact Page **/
 #contact-page {
-  bbackground-color: yellow;
   display: none;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1rem 20% 0;
+  justify-content: space-between;
+  padding: 1rem 10% 0;
   font-size: 2rem;
-
 }
 
-#contact-form-container {
-  bbackground-color: pink;
+.contact-banner {
+  position: relative;
+  width: 100%;
+  height: 3em;
+  border-bottom: 1px black solid;
+  margin-bottom: .5em;
 }
 
-#contact-form-container .title-banner {
-  border: 1px black solid;
-}
-
-#contact-form-container .title-banner span {
+.contact-banner span {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  left: .5em;
+  bottom: 0.1em;
+  font-size: 1.5em;
+  font-weight: 700;
   color: hsl(0, 0%, 20%);
 }
 
-#contact-form {
-  bborder: 1px black solid;
+@media only screen and (max-width: 1600px) {
+  #contact-page {
+    font-size: 1.6rem;
+  }
+  .contact-banner span {
+    left: .2em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #contact-page {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #contact-page {
+    padding: 1rem 3% 0;
+  }
+}
+#contact-links-side {
+  width: 40%;
+}
+
+#contact-links {
+  display: block;
+}
+
+.contact-link {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.5em 0;
+}
+
+.contact-link img {
+  width: 4em;
+  height: 4em;
+  padding: .5em;
+}
+
+.contact-link div {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 2rem;
+  align-content: center;
+  width: 100%;
+  font-size: .8em;
+  padding: 0 .5em;
+}
+
+.contact-link span {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 1600px) {
+  .contact-link img {
+    width: 2.6em;
+    height: 2.6em;
+    padding: .2em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #contact-links-side {
+    width: 95%;
+  }
+
+  #contact-links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contact-link {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-link img {
+    width: 2em;
+    height: 2em;
+  }
+
+  .contact-link div {
+    justify-content: center;
+    font-size: .6em;
+  }
+
+  .contact-link span {
+    text-align: center;
+    margin-bottom: .2em;
+  }
+}
+
+#contact-form-side {
+  width: 55%;
+}
+
+#contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  margin: 0 1em;
+}
+
+@media only screen and (max-width: 1600px) {
+  #contact-form {
+    margin: 0 .5em;
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #contact-form-side {
+    width: 95%;
+  }
+  
+  #contact-form {
+    padding: 1em 0 2em;
+  }
 }
 
 #form-name-container {
-  bborder: 1px black solid;
   display: inline-block;
   width: 60%;  
   padding-right: 1em;
 }
 
 #form-email-container {
-  bborder: 1px black solid;
   display: inline-block;
   width: 40%;
 }
@@ -626,6 +803,22 @@ em.blue {
 
 #form-message {
   height: 6em;
+}
+
+#form-submit-container {
+  width: 8em;
+  padding-right: 1em;
+}
+
+#form-submit {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 1600px) {
+  input {
+    font-size: .8em;
+  }
 }
 
 /* Footer */
@@ -647,30 +840,9 @@ em.blue {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1600px) {
-  #contact-section {
-    padding-bottom: 10px;
-  }
-
-  #contact-section img {
-    height: 30px;
-    padding: 0 18px;
-  }
-}
-
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1024px) {
   #contact-section img {
     height: 24px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  #contact-section {
-    padding-bottom: 5px;
-  }
-
-  #contact-section img {
-    height: 20px;
     padding: 0 12px;
   }
 }
@@ -685,7 +857,7 @@ em.blue {
   width: 94vw;
   margin: 5vh 3vw;
   border-radius: 1.5rem;
-  background-color: hsla(0, 0%, 0%, 0.8);
+  background-color: hsla(0, 0%, 0%, 0.9);
   opacity: 0;
   overflow-x: hidden;
   z-index: 10;
@@ -710,7 +882,7 @@ em.blue {
   box-shadow: 0px 2px hsl(0, 0%, 10%);
   padding-bottom: 0.1rem;
   border-radius: 1.5rem;
-  font-size: 2.2rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -723,13 +895,13 @@ em.blue {
   position: absolute;
   top: 25vh;
   height: 40vh;
-  width: 3vw;
+  width: 50px;
   justify-content: center;
   align-items: center;
   background-color: hsl(0, 0%, 35%);
   color: hsl(0, 0%, 100%);
   font-family: sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -757,14 +929,20 @@ em.blue {
   box-shadow: 0px 0px 0px;
 }
 
+@media only screen and (max-width: 1024px) {
+  .screenshots-skip {
+    width: 40px;
+  }
+}
+
 .screenshots-container {
   display: none;
   position: relative;
   left: 4%;
   top: 4%;
-  height: 96%;
+  height: 90%;
   width: 92%;
-  overflow-x: hidden;
+  overflow: hidden;
   opacity: 0;
   transition: opacity 1s;
 }
@@ -774,32 +952,50 @@ em.blue {
   top: 0;
   width: 100%;
   height: 100%;
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   transition: left 1s;
 }
 
 .screenshot img {
   display: block;
   border-radius: 1.5rem;
+  align-self: flex-end;
   max-width: 88%;
   max-height: 88%;
-  margin: 0 auto;
+}
+
+.screenshot-text-container {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .screenshot-text {
   background-color: hsl(0, 0%, 90%);
-  display: block;
   box-sizing: content-box;
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 1.4rem;
+  max-width: 80%;
   text-align: center;
   padding: .3em 1em;
   font-size: 1.6em;
   color: hsl(0, 0%, 20%);
-  border-radius: 12px;
+  border-radius: .4em;
+}
+
+@media only screen and (max-width: 1600px) {
+  .screenshot-text {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .screenshot-text {
+    font-size: 1em;
+  }
 }
 
 .screenshot.active {

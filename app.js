@@ -1,17 +1,7 @@
-//Assign event handlers to navigation menu
-document.getElementById("header").onmouseover = navMenuMouseOverEventHander;
-document.getElementById("header").onmouseout = navMenuMouseOutEventHander;
-
 //Assign event handlers to screenshots overlay control buttons
 document.getElementById("screenshots-close").onclick = screenshotCloseClickEventHandler;
 document.getElementById("screenshots-skip-left").onclick = screenshotsSkipLeftClickEventHandler;
 document.getElementById("screenshots-skip-right").onclick = screenshotsSkipRightClickEventHandler;
-
-//
-document.getElementById("form-submit").onclick = (event) => {
-  event.preventDefault();
-  alert(document.getElementById("form-name").value);
-}
 
 //Global variables assignment
 let pages = document.getElementsByClassName("page");
@@ -51,14 +41,18 @@ setTimeout(() => {
     //Display Home Page and Footer
     document.getElementById("home-page").className = "page active";
     document.getElementById("contact-section").style.display = "flex";
+    //Assign event handlers to navigation menu
+    document.getElementById("header").onmouseover = navMenuReveal;
+    document.getElementById("header").onclick = navMenuItemClickEventHandler;
+    document.getElementById("header").onmouseout = navMenuConceal;
     setTimeout(() => {
       document.getElementById("contact-section").style.opacity = "1";
       }, 100);
     }, 1000);
   }, 1000 /*2500*/);
 
-//Mouse over event handler for the Navigation Menu
-function navMenuMouseOverEventHander() {
+//Mouse over and click event handler for the Navigation Menu
+function navMenuReveal() {
   if (document.getElementById("nav-menu").style.opacity === "1") {
     for (let i=0;i<menuItems.length;i++) {
       if (menuItems[i].className === "nav-menu-item hidden") {
@@ -69,7 +63,7 @@ function navMenuMouseOverEventHander() {
 }
 
 //Mouse out event handler for the Navigation Menu
-function navMenuMouseOutEventHander() {
+function navMenuConceal() {
   if (document.getElementById("nav-menu").style.opacity === "1") {
     for (let i=0;i<menuItems.length;i++) {
       if (menuItems[i].className !== "nav-menu-item active") {
@@ -81,26 +75,55 @@ function navMenuMouseOutEventHander() {
 
 //Click event handler for Navigation Menu items
 function navMenuItemClickEventHandler(e) {
-  const pageToDisplay = e.target.innerHTML;
-  if (document.getElementById(pageToDisplay.toLowerCase() + "-page").className !== "page active") {
-    for (let i=0;i<pages.length;i++) {
-      if (pages[i].className === "page active") {
-        pages[i].className = "page hidden";
-        menuItems[i].className="nav-menu-item";
-        e.target.parentNode.className = "nav-menu-item active";
-        document.getElementById("contact-section").style.opacity = "0";
-        setTimeout(() => {
-          pages[i].style.display = "none";
-          document.getElementById(pageToDisplay.toLowerCase() + "-page").style.display = "flex";
-          }, 500);
-        break;
+  if (e.pointerType !== "touch" || e.target.className === "nav-menu-title") {
+    const pageToDisplay = e.target.innerHTML || e.target.nextElementSibling.innerHTML;
+    if (document.getElementById(pageToDisplay.toLowerCase() + "-page").className !== "page active") {
+      for (let i=0;i<pages.length;i++) {
+        if (pages[i].className === "page active") {
+          pages[i].className = "page hidden";
+          menuItems[i].className="nav-menu-item";
+          e.target.parentNode.className = "nav-menu-item active";
+          document.getElementById("contact-section").style.opacity = "0";
+          setTimeout(() => {
+            pages[i].style.display = "none";
+            document.getElementById(pageToDisplay.toLowerCase() + "-page").style.display = "flex";
+            document.getElementById("form-name").value="";
+            document.getElementById("form-email").value="";
+            document.getElementById("form-subject").value="";
+            document.getElementById("form-message").value="";
+            document.getElementById("form-submit").value="send";
+            if (pageToDisplay.toLowerCase() === "contact") {
+              document.getElementById("contact-section").style.display = "none";
+            } else {
+              document.getElementById("contact-section").style.display = "flex";
+            }
+            }, 500);
+          break;
+        }
       }
+      setTimeout(() => {
+        document.getElementById(pageToDisplay.toLowerCase() + "-page").className="page active";
+        document.getElementById("main").scrollIntoView({behaviour: "auto", block: "start"});
+        if (e.pointerType === "touch") {
+          navMenuConceal();
+        }
+        if (pageToDisplay.toLowerCase() !== "contact") {
+          document.getElementById("contact-section").style.opacity = "1";
+        }
+        }, 600);
     }
-    setTimeout(() => {
-      document.getElementById(pageToDisplay.toLowerCase() + "-page").className="page active";
-      document.getElementById("contact-section").style.opacity = "1";
-      }, 600);
   }
+}
+
+//Message form submit event handler
+document.getElementById("form-submit").onclick = (event) => {
+  event.preventDefault();
+  //Reset the form values
+  document.getElementById("form-name").value="";
+  document.getElementById("form-email").value="";
+  document.getElementById("form-subject").value="";
+  document.getElementById("form-message").value="";
+  document.getElementById("form-submit").value="sent";
 }
 
 //Click event handler for the .screenshotLink elements

@@ -46,7 +46,7 @@
       </div>
     </div>
   </header>
-  <main>
+  <main id="main">
     <div id="home-page" class="page hidden">
       <div id="home-page-left">
         <span id="portrait-photo"></span>
@@ -78,23 +78,10 @@
           <div class="cert-title">
             Front-End Engineer Career Path  
           </div>
-          <ul class="cert-skills">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Redux</li>
-            <li>React/Redux</li>
-            <li>React Router</li>
-            <li>React Testing</li>
-            <li>Webpack</li>
-            <li>Mocha</li>
-            <li>SEO</li>
-            <li>Node.JS</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Markdown</li>
-          </ul>
+          <div class="cert-skills">
+            HTML&#160• CSS&#160• JavaScript&#160• React&#160• Redux&#160• React-Redux&#160• React Router&#160• React Testing&#160• WebPack&#160•
+            Mocha&#160• SEO&#160• Node.JS&#160• Git&#160• GitHub&#160• Markdown
+          </div>
           <div class="cert-about">
             Codecademy, 2022
           </div>
@@ -144,42 +131,19 @@
         <div id="expertise-title" class="title-banner">
           <span>Expertise</span>
         </div>
-        <ul class="exp-skills">
-          <li>Web Development</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Redux</li>
-          <li>React Testing</li>
-          <li>SPA</li>
-          <li>SEO</li>
-          <li>Linting</li>
-          <li>Data Structures</li>
-          <li>Git</li>
-          <li>GitHub</li>
-          <li>Markdown</li>
-        </ul>
-        <ul class="exp-skills">
-          <li>Processing</li>
-          <li>Arduino</li>
-        </ul>
-        <ul class="exp-skills">
-          <li>Cloud Architecture</li>
-          <li>Cloud Operations</li>
-          <li>AWS</li>
-          <li>Azure</li>
-          <li>Docker</li>
-          <li>Kubernetes</li>
-        </ul>
-        <ul class="exp-skills">
-          <li>Project Management</li>
-          <li>IT Service Management</li>
-          <li>Change Management</li>
-          <li>Incident Management</li>
-          <li>Business Analysis</li>
-          <li>Business Engagement</li>
-        </ul>
+        <div class="exp-skills">
+          <em class="blue">Web Development</em>&#160• HTML&#160• CSS&#160• JavaScript&#160• React&#160• Redux&#160• React Testing&#160• SPA&#160• SEO&#160•
+          Linting&#160• Data Structures&#160• Git&#160• GitHub&#160• Markdown
+        </div>
+        <div class="exp-skills">
+          Processing&#160• Arduino
+        </div>
+        <div class="exp-skills">
+          <em class="blue">Cloud Architecture</em>&#160• <em class="blue">Cloud Operations</em>&#160• AWS&#160• Azure&#160• Docker&#160• Kubernetes
+        </div>
+        <div class="exp-skills">
+          <em class="blue">Project Management</em>&#160• <em class="blue">IT Service Management</em>&#160• Change Management&#160• Incident Management&#160• Business Analysis&#160• Business Engagement
+        </div>
       </div>
     </div>
     <div id="portfolio-page" class="page hidden">
@@ -198,7 +162,7 @@
             <span class="screenshot-link quickr">screenshots</span>&#160&#160&#160<span><a href="https://github.com/AbsolutDev/reddit-client" target="github">source code</a></span>&#160&#160&#160<span><a href="https://celadon-malabi-4b4a22.netlify.app/" target="_blank">site</a></span>
           </div>
         </div>
-        <div class="project">
+        <div id="project-portfolio" class="project">
           <div class="project-title">
             Project Portfolio
           </div>
@@ -242,12 +206,40 @@
         </div>
       </div>
       <div id="projects-footer">
-        For more projects, check out my <a href="https://github.com/AbsolutDev?tab=repositories" target="github">GitHub repo</a>.
+        For more projects, check out my <a href="https://github.com/AbsolutDev?tab=repositories" target="github">GitHub&#160repo</a>.
       </div>
     </div>
     <div id="contact-page" class="page hidden">
-      <div id="contact-form-container">
-        <div class="title-banner">
+      <div id="contact-links-side">
+        <div class="contact-banner">
+          <span>Contact</span>
+        </div>
+        <div id="contact-links">
+          <div class="contact-link">
+            <img src="./img/contact-email.png" />
+            <div>
+              <span>e-mail</span>
+              <a href="mailto:absolutdev.io@gmail.com">absolutdev.io@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-link">
+            <img src="./img/contact-linkedin.png" />
+            <div>
+              <span>Linked-in</span>
+              <a href="https://www.linkedin.com/in/giliescu/">linkedin.com/in/giliescu/</a>
+            </div>
+          </div>
+          <div class="contact-link">
+            <img src="./img/contact-github.png" />
+            <div>
+              <span>GitHub</span>
+              <a href="https://github.com/AbsolutDev">github.com/AbsolutDev</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="contact-form-side">
+        <div class="contact-banner">
           <span>Message Me</span>
         </div>
         <form id="contact-form" method="POST">
@@ -276,15 +268,6 @@
           </div>
         </form>
       </div>
-      <div id="contact-links-container">
-        <div class="title-banner">
-          <span>Contact links title</span>
-        </div>
-        <div id="contact-links-title">
-          Contact links
-        </div>
-      </div>
-      
     </div>
   </main>
   <footer id="contact-section">
@@ -296,114 +279,150 @@
     <div id="quickr-screenshots" class="screenshots-container">
       <div class="screenshot active">
         <img src="./img/screenshots/quickR1.jpg" />
-        <div class="screenshot-text">
-          A single page app to browse the latest posts from the most popular subreddits.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            A single page app to browse the latest posts from the most popular subreddits.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR2.jpg" />
-        <div class="screenshot-text">
-          The user can switch to dark mode display theme.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            The user can switch to dark mode display theme.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR3.jpg" />
-        <div class="screenshot-text">
-          Post comments are displayed hierarchically.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Post comments are displayed hierarchically.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR4.jpg" />
-        <div class="screenshot-text">
-          Ability for users to share posts.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Ability for users to share posts.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR5.jpg" />
-        <div class="screenshot-text">
-          Loading animation while asynchronous queries are pending.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Loading animation while asynchronous queries are pending.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR6.png" />
-        <div class="screenshot-text">
-          Adaptive design caters to different screen types and resolutions.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Adaptive design caters to different screen types and resolutions.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/quickR7.png" />
-        <div class="screenshot-text">
-          Adaptive design caters to different screen types and resolutions.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Adaptive design caters to different screen types and resolutions.
+          </div>
         </div>
       </div>
     </div>
     <div id="infopad-screenshots" class="screenshots-container">
       <div class="screenshot active">
         <img src="./img/screenshots/infoPad1.jpg" />
-        <div class="screenshot-text">
-          Information dashboard displaying time, date, calendar, news, weather and trains schedule.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Information dashboard displaying time, date, calendar, news, weather and trains schedule.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/infoPad2.jpg" />
-        <div class="screenshot-text">
-          Smart speaker control module.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Smart speaker control module.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/infoPad3.jpg" />
-        <div class="screenshot-text">
-          Quick access to other apps and web services.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Quick access to other apps and web services.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/infoPad4.jpg" />
-        <div class="screenshot-text">
-          Connection monitoring for network devices and services.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Connection monitoring for network devices and services.
+          </div>
         </div>
       </div>
     </div>
     <div id="ampoker-screenshots" class="screenshots-container">
       <div class="screenshot active">
         <img src="./img/screenshots/ampkr1.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr2.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr3.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr4.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr5.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr6.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
       <div class="screenshot right">
         <img src="./img/screenshots/ampkr7.png" />
-        <div class="screenshot-text">
-          Replica of the once very popular arcade game.
+        <div class="screenshot-text-container">
+          <div class="screenshot-text">
+            Replica of the once very popular arcade game.
+          </div>
         </div>
       </div>
     </div>
@@ -417,15 +436,5 @@
       &#62;
     </div>
   </div>
-  
 </body>
 </html>
-
-<!--
-      <div class="screenshot right">
-        <img src="./img/screenshots/infoPad2.jpg" />
-      </div>
-      <div class="screenshot right">
-        <img src="./img/screenshots/infoPad3.jpg" />
-      </div>
--->
