@@ -121,7 +121,6 @@ header {
   }
 }
 
-
 #nav-menu {
   display: flex;
   justify-content: center;
@@ -669,6 +668,8 @@ em.blue {
   }
 }
 
+/* Activate when form in place */
+/*
 @media only screen and (max-width: 1024px) {
   #contact-page {
     flex-wrap: wrap;
@@ -676,6 +677,7 @@ em.blue {
     font-size: 1.2rem;
   }
 }
+*/
 
 @media only screen and (max-width: 768px) {
   #contact-page {
@@ -727,17 +729,19 @@ em.blue {
 }
 
 @media only screen and (max-width: 1024px) {
+  /* Activate when form in place */
+  /*
   #contact-links-side {
     width: 95%;
   }
-
+  
   #contact-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
     width: 100%;
   }
-
+  */
   .contact-link img {
     width: 2em;
     height: 2em;
@@ -751,21 +755,6 @@ em.blue {
 #contact-form-side {
   width: 55%;
 }
-
-/* Remove to display form */
-/* :START */
-#contact-page {
-  justify-content: center;
-}
-
-.contact-banner {
-  display: none;
-}
-
-#contact-form-side {
-  display: none;
-}
-/* :END */
 
 #contact-form {
   display: flex;
@@ -830,6 +819,27 @@ em.blue {
   }
 }
 
+/* Remove to display form */
+/* :START */
+#contact-page {
+  justify-content: center;
+  align-self: first baseline;
+  padding-top: 5rem;
+}
+
+.contact-banner {
+  display: none;
+}
+
+#contact-links-side {
+  width: 60%
+}
+
+#contact-form-side {
+  display: none;
+}
+/* :END */
+
 /* Footer */
 #contact-section {
   display: none;
@@ -862,10 +872,8 @@ em.blue {
   display: none;
   position: fixed;
   top: 0;
-  height: 90vh;
-  width: 94vw;
-  margin: 5vh 3vw;
-  border-radius: 1.5rem;
+  height: 100vh;
+  width: 100vw;
   background-color: hsla(0, 0%, 0%, 0.9);
   opacity: 0;
   overflow-x: hidden;

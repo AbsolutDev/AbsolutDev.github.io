@@ -5,7 +5,6 @@ document.getElementById("screenshots-skip-right").onclick = screenshotsSkipRight
 
 //Global variables assignment
 let pages = document.getElementsByClassName("page");
-let screenshotPages = document.getElementsByClassName("screenshots-overlay");
 let currentScreenshot;
 let projectName;
 let screenshotScreens;
@@ -134,7 +133,8 @@ function screenshotLinksClickEventHandler(e) {
   //Display the Screenshots Overlay
   document.getElementById("screenshots-overlay").style.display = "block";
   setTimeout(() => {
-    document.getElementById("screenshots-overlay").className = "active";  
+    document.getElementById("screenshots-overlay").className = "active";
+    document.body.style.overflowY = "hidden";
     }, 100);
 
   //Display the project's screenshots
@@ -170,6 +170,7 @@ function screenshotCloseClickEventHandler() {
   //Hide the screenshots overlay element
   setTimeout(() => {
     document.getElementById("screenshots-overlay").className = "";
+    document.body.style.overflowY = "auto";
     //Remove skip and close buttons
     setTimeout(() => {
       document.getElementById("screenshots-skip-right").style.display = "none";
