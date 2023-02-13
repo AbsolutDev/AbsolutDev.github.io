@@ -243,7 +243,6 @@ main {
 }
 
 #home-page {
-  bborder: 1px black solid;
   display: flex;
   flex-wrap: wrap;
   align-content: start;
@@ -253,7 +252,6 @@ main {
 }
 
 #home-page-top {
-  bborder: 1px black solid;
   display: flex;
   width: 100%;
   font-size: 2em;
@@ -262,14 +260,12 @@ main {
 }
 
 #home-page-welcome {
-  bborder: 1px black solid;
   width: 50%;
   text-align: right;
   padding-right: 2rem;
 }
 
 #home-page-portrait {
-  bborder: 1px solid black;
   display: flex;
   justify-content: left;
   width: 50%;
@@ -283,7 +279,6 @@ main {
 }
 
 #home-page-caption {
-  bborder: 1px black solid;
   font-size: 1em;
   text-align: center;
   line-height: 1.5;
@@ -306,12 +301,6 @@ em.blue {
 @media only screen and (max-width: 1600px) {
   #home-page {
     font-size: 2rem;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  #home-page-top {
-    ffont-size: 1.6em;
   }
 }
 
@@ -528,7 +517,7 @@ em.blue {
   display: none;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 100vw;
 }
 
 #projects-main {
@@ -634,211 +623,80 @@ em.blue {
 /** Contact Page **/
 #contact-page {
   display: none;
-  justify-content: space-between;
+  justify-content: center;
+  align-self: first baseline;
   width: 100%;
-  padding: 1rem 10% 0;
+  padding: 5rem 10% 0;
   font-size: 2rem;
-}
-
-.contact-banner {
-  position: relative;
-  width: 100%;
-  height: 3em;
-  border-bottom: 1px black solid;
-  margin-bottom: .5em;
-}
-
-.contact-banner span {
-  position: absolute;
-  display: inline-block;
-  width: 100%;
-  left: .5em;
-  bottom: 0.1em;
-  font-size: 1.5em;
-  font-weight: 700;
-  color: hsl(0, 0%, 20%);
 }
 
 @media only screen and (max-width: 1600px) {
   #contact-page {
     font-size: 1.6rem;
   }
-  .contact-banner span {
-    left: .2em;
-  }
 }
 
-/* Activate when form in place */
-/*
 @media only screen and (max-width: 1024px) {
   #contact-page {
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-    font-size: 1.2rem;
+    padding-top: 2rem;
   }
 }
-*/
 
 @media only screen and (max-width: 768px) {
   #contact-page {
-    padding: 1rem 3% 0;
+    font-size: 1.2rem;
   }
 }
 
 #contact-links-side {
-  width: 40%;
+  width: 70%;
+}
+
+@media only screen and (max-width: 1024px) {
+  #contact-links-side {
+    width: 80%;
+  }
 }
 
 #contact-links {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .contact-link {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 0.5em 0;
+  flex-shrink: 0;
+  width: 40%;
+  padding: 1em 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-link {
+    width: 90%;
+  }
 }
 
 .contact-link img {
-  width: 4em;
-  height: 4em;
-  padding: .5em;
+  display: block;
+  width: 3em;
+  height: 3em;
+  margin: 0 auto;
 }
 
 .contact-link div {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  width: 100%;
-  font-size: .8em;
-  padding: 0 .5em;
-}
-
-.contact-link span {
   width: 100%;
   font-size: 1.2em;
-  font-weight: 700;
+  text-align: center;
+  cursor: default;
 }
 
-@media only screen and (max-width: 1600px) {
-  .contact-link img {
-    width: 2.6em;
-    height: 2.6em;
-    padding: .2em;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  /* Activate when form in place */
-  /*
-  #contact-links-side {
-    width: 95%;
-  }
-  
-  #contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    width: 100%;
-  }
-  */
-  .contact-link img {
-    width: 2em;
-    height: 2em;
-  }
-
-  .contact-link div {
-    font-size: .6em;
-  }
-}
-
-#contact-form-side {
-  width: 55%;
-}
-
-#contact-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: right;
-  margin: 0 1em;
-}
-
-@media only screen and (max-width: 1600px) {
-  #contact-form {
-    margin: 0 .5em;
-    font-size: 0.8em;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  #contact-form-side {
-    width: 95%;
-  }
-  
-  #contact-form {
-    padding: 1em 0 2em;
-  }
-}
-
-#form-name-container {
-  display: inline-block;
-  width: 60%;  
-  padding-right: 1em;
-}
-
-#form-email-container {
-  display: inline-block;
-  width: 40%;
-}
-
-#form-subject-container {
+.contact-link a {
+  display: block;
   width: 100%;
+  font-size: .6em;
+  text-align: center;
+  padding-top: .5em;
 }
-
-#form-message-container {
-  width: 100%;
-}
-
-#form-message {
-  height: 6em;
-}
-
-#form-submit-container {
-  width: 8em;
-  padding-right: 1em;
-}
-
-#form-submit {
-  width: 100%;
-  height: auto;
-}
-
-@media only screen and (max-width: 1600px) {
-  input {
-    font-size: .8em;
-  }
-}
-
-/* Remove to display form */
-/* :START */
-#contact-page {
-  justify-content: center;
-  align-self: first baseline;
-  padding-top: 5rem;
-}
-
-.contact-banner {
-  display: none;
-}
-
-#contact-links-side {
-  width: 60%
-}
-
-#contact-form-side {
-  display: none;
-}
-/* :END */
 
 /* Footer */
 #contact-section {
@@ -897,10 +755,14 @@ em.blue {
   background-color: hsl(0, 0%, 35%);
   color: hsl(0, 0%, 100%);
   box-shadow: 0px 2px hsl(0, 0%, 10%);
-  padding-bottom: 0.1rem;
   border-radius: 1.5rem;
   font-size: 2rem;
   cursor: pointer;
+}
+
+#screenshots-close img {
+  width: 1.6rem;
+  height: auto;
 }
 
 #screenshots-close:active {
@@ -910,45 +772,61 @@ em.blue {
 
 .screenshots-skip {
   position: absolute;
-  top: 25vh;
-  height: 40vh;
-  width: 50px;
+  top: 40vh;
+  height: 280px;
+  width: 60px;
   justify-content: center;
   align-items: center;
   background-color: hsl(0, 0%, 35%);
   color: hsl(0, 0%, 100%);
-  font-family: sans-serif;
-  font-size: 2rem;
   cursor: pointer;
+}
+
+.screenshots-skip img {
+  width: 50%;
+  height: auto;
 }
 
 #screenshots-skip-left {
   display: none;
-  left: -2px;
-  border-radius: 0 1.5rem 1.5rem 0;
-  box-shadow: 2px 0px 2px hsl(0, 0%, 10%);
+  left: 0px;
+  border-radius: 0 26px 26px 0;
+  padding-right: 10px;
 }
 
 #screenshots-skip-left:active {
-  left: 0px;
-  box-shadow: 0px 0px 0px;
+  left: -2px;
 }
 
 #screenshots-skip-right {
   display: none;
-  right: -2px;
-  border-radius: 1.5rem 0 0 1.5rem;
-  box-shadow: -2px 0px 2px hsl(0, 0%, 10%);
+  right: 0;
+  border-radius: 26px 0 0 26px;
+  padding-left: 10px;
 }
 
 #screenshots-skip-right:active {
-  right: 0px;
-  box-shadow: 0px 0px 0px;
+  right: -2px;
 }
 
 @media only screen and (max-width: 1024px) {
   .screenshots-skip {
     width: 40px;
+  }
+  #screenshots-skip-left {
+    border-radius: 0 14px 14px 0;
+    padding-right: 5px;
+  }
+  #screenshots-skip-right {
+    border-radius: 14px 0 0 14px;
+    padding-left: 5px;
+  }
+}
+
+@media only screen and (max-width: 768px), (orientation: portrait) {
+  .screenshots-skip {
+    top: 70vh;
+    height: 140px;
   }
 }
 

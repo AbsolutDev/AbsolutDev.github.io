@@ -86,11 +86,6 @@ function navMenuItemClickEventHandler(e) {
           setTimeout(() => {
             pages[i].style.display = "none";
             document.getElementById(pageToDisplay.toLowerCase() + "-page").style.display = "flex";
-            document.getElementById("form-name").value="";
-            document.getElementById("form-email").value="";
-            document.getElementById("form-subject").value="";
-            document.getElementById("form-message").value="";
-            document.getElementById("form-submit").value="send";
             if (pageToDisplay.toLowerCase() === "contact") {
               document.getElementById("contact-section").style.display = "none";
             } else {
@@ -114,17 +109,6 @@ function navMenuItemClickEventHandler(e) {
   }
 }
 
-//Message form submit event handler
-document.getElementById("form-submit").onclick = (event) => {
-  event.preventDefault();
-  //Reset the form values
-  document.getElementById("form-name").value="";
-  document.getElementById("form-email").value="";
-  document.getElementById("form-subject").value="";
-  document.getElementById("form-message").value="";
-  document.getElementById("form-submit").value="sent";
-}
-
 //Click event handler for the .screenshotLink elements
 function screenshotLinksClickEventHandler(e) {
   //Retrieve the project name
@@ -135,7 +119,7 @@ function screenshotLinksClickEventHandler(e) {
   setTimeout(() => {
     document.getElementById("screenshots-overlay").className = "active";
     document.body.style.overflowY = "hidden";
-    }, 100);
+    }, 300);
 
   //Display the project's screenshots
   document.getElementById(projectName + "-screenshots").style.display = "block";
