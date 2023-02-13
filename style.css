@@ -626,7 +626,7 @@ em.blue {
   justify-content: center;
   align-self: first baseline;
   width: 100%;
-  padding: 5rem 10% 0;
+  padding: 8vh 10% 0;
   font-size: 2rem;
 }
 
@@ -638,7 +638,7 @@ em.blue {
 
 @media only screen and (max-width: 1024px) {
   #contact-page {
-    padding-top: 2rem;
+    padding-top: 2vh;
   }
 }
 
