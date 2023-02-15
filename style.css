@@ -146,7 +146,7 @@ header {
 
 .nav-menu-icon {
   display: inline-block;
-  background-color: hsl(195, 53%, 79%);
+  background-color: hsl(195, 53%, 60%);
   width: 1em;
   height: 1em;
   margin-right: 0.5em;
@@ -298,6 +298,10 @@ em.blue {
   color: hsl(240, 100%, 40%);
 }
 
+em.lightblue {
+  color: hsl(195, 53%, 79%);
+}
+
 @media only screen and (max-width: 1600px) {
   #home-page {
     font-size: 2rem;
@@ -333,21 +337,23 @@ em.blue {
   flex-wrap: wrap;
   padding: 4rem 14% 0 14%;
   font-size: 2rem;
-  line-height: 1.6em;
-}
-
-.about-page-content:first-child {
-  font-size: 1.2em;
 }
 
 .about-page-content {
+  line-height: 1.6em;
   margin-bottom: 2em;
 }
 
-#family-photo {
-  width: 19rem;
-  height: 19rem;
-  margin: 1rem 2rem 1rem 1rem;
+#about-first-paragraph {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin-bottom: 2em;
+}
+
+#about-first-paragraph img {
+  width: 9em;
+  height: 9em;
+  margin: 0.5em 1em 0 0;
   border-radius: 10%;
   background-image: url('./img/family.jpg');
   background-size: cover;
@@ -355,10 +361,18 @@ em.blue {
   float: left;
 }
 
+#about-page-hello {
+  color: hsl(195, 53%, 60%);
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1.2em;
+  padding: 0.1em 0;
+}
+
 @media only screen and (max-width: 1600px) {
-  #family-photo {
-    width: 15rem;
-    height: 15rem;
+  #about-first-paragraph img {
+    width: 7.6em;
+    height: 7.6em;
   }
 }
 
