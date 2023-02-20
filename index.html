@@ -243,29 +243,62 @@
     </div>
     <div id="contact-page" class="page hidden">
       <div id="contact-links-side">
+        <div class="contact-banner">
+          <span>Contact</span>
+        </div>
         <div id="contact-links">
           <div class="contact-link">
             <img src="./img/contact-email.png" />
             <div>
-              e-mail
+              <span>e-mail</span>
+              <a href="mailto:absolutdev.io@gmail.com">absolutdev.io@gmail.com</a>
             </div>
-            <a href="mailto:absolutdev.io@gmail.com">absolutdev.io@gmail.com</a>
           </div>
           <div class="contact-link">
             <img src="./img/contact-linkedin.png" />
             <div>
-              Linked-in
+              <span>Linked-in</span>
+              <a href="https://www.linkedin.com/in/giliescu/">linkedin.com/in/giliescu/</a>
             </div>
-            <a href="https://www.linkedin.com/in/giliescu/">linkedin.com/in/giliescu/</a>
           </div>
           <div class="contact-link">
             <img src="./img/contact-github.png" />
             <div>
-              GitHub
+              <span>GitHub</span>
+              <a href="https://github.com/AbsolutDev">github.com/AbsolutDev</a>
             </div>
-            <a href="https://github.com/AbsolutDev">github.com/AbsolutDev</a>
           </div>
         </div>
+      </div>
+      <div id="contact-form-side">
+        <div class="contact-banner">
+          <span>Message Me</span>
+        </div>
+        <form id="contact-form" action="https://usebasin.com/f/f5c6864fc67e" enctype="multipart/form-data" method="POST">
+          <div id="form-name-container">
+            <label for="form-name">Name:</label>
+            <input id="form-name" name="name" type="text">
+          </div>
+          
+          <div id="form-email-container">
+            <label for="form-email">E-mail:</label>
+            <input id="form-email" name="email" type="email" placeholder="required" required>
+          </div>
+          
+          <div id="form-subject-container">
+            <label for="form-subject">Subject:</label>
+            <input id="form-subject" name="subject" type="text">
+          </div>
+          
+          <div id="form-message-container">
+            <label for="form-message">Message:</label>
+            <textarea id="form-message" name="message" placeholder="required" required></textarea>
+          </div>
+
+          <div id="form-submit-container">
+            <input id="form-submit" type="submit" value="send">
+          </div>
+        </form>
       </div>
     </div>
   </main>

@@ -111,6 +111,11 @@ function navMenuItemClickEventHandler(e) {
           setTimeout(() => {
             pages[i].style.display = "none";
             document.getElementById(pageToDisplay.toLowerCase() + "-page").style.display = "flex";
+            document.getElementById("form-name").value="";
+            document.getElementById("form-email").value="";
+            document.getElementById("form-subject").value="";
+            document.getElementById("form-message").value="";
+            document.getElementById("form-submit").value="send";
             if (pageToDisplay.toLowerCase() === "contact") {
               document.getElementById("contact-section").style.display = "none";
             } else {
@@ -132,6 +137,16 @@ function navMenuItemClickEventHandler(e) {
         }, 600);
     }
   }
+}
+
+//Message form submit event handler
+document.getElementById("form-submit").onclick = (event) => {
+  //Reset the form values
+  document.getElementById("form-name").value="";
+  document.getElementById("form-email").value="";
+  document.getElementById("form-subject").value="";
+  document.getElementById("form-message").value="";
+  document.getElementById("form-submit").value="sent";
 }
 
 //Click event handler for the .screenshotLink elements

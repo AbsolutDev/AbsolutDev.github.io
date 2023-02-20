@@ -366,7 +366,6 @@ em.lightblue {
 
 /** About Page **/
 #about-page {
-  border: 1px red solid;
   display: none;
   flex-wrap: wrap;
   padding: 4rem 14% 0 14%;
@@ -396,7 +395,6 @@ em.lightblue {
 }
 
 #about-page-hello {
-  border: 1px blue solid;
   color: hsl(195, 53%, 60%);
   font-size: 3em;
   font-weight: 700;
@@ -675,79 +673,183 @@ em.lightblue {
 /** Contact Page **/
 #contact-page {
   display: none;
-  justify-content: center;
-  align-self: first baseline;
+  justify-content: space-between;
   width: 100%;
-  padding: 8vh 10% 0;
+  padding: 1rem 10% 0;
   font-size: 2rem;
+}
+
+.contact-banner {
+  position: relative;
+  width: 100%;
+  height: 3em;
+  border-bottom: 1px black solid;
+  margin-bottom: .5em;
+}
+
+.contact-banner span {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  left: .5em;
+  bottom: 0.1em;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: hsl(0, 0%, 20%);
 }
 
 @media only screen and (max-width: 1600px) {
   #contact-page {
     font-size: 1.6rem;
   }
+  .contact-banner span {
+    left: .2em;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   #contact-page {
-    padding-top: 2vh;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  #contact-page {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
     font-size: 1.2rem;
   }
 }
 
+@media only screen and (max-width: 768px) {
+  #contact-page {
+    padding: 1rem 3% 0;
+  }
+}
+
 #contact-links-side {
-  width: 70%;
+  width: 40%;
+}
+
+#contact-links {
+  display: block;
+}
+
+.contact-link {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.5em 0;
+}
+
+.contact-link img {
+  width: 4em;
+  height: 4em;
+  padding: .5em;
+}
+
+.contact-link div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100%;
+  font-size: .8em;
+  padding: 0 .5em;
+}
+
+.contact-link span {
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 1600px) {
+  .contact-link img {
+    width: 2.6em;
+    height: 2.6em;
+    padding: .2em;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   #contact-links-side {
-    width: 80%;
+    width: 95%;
+  }
+  
+  #contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+  }
+  .contact-link img {
+    width: 2em;
+    height: 2em;
+  }
+
+  .contact-link div {
+    font-size: .6em;
   }
 }
 
-#contact-links {
+#contact-form-side {
+  width: 55%;
+}
+
+#contact-form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: right;
+  margin: 0 1em;
 }
 
-.contact-link {
-  flex-shrink: 0;
-  width: 40%;
-  padding: 1em 0;
-}
-
-@media only screen and (max-width: 768px) {
-  .contact-link {
-    width: 90%;
+@media only screen and (max-width: 1600px) {
+  #contact-form {
+    margin: 0 .5em;
+    font-size: 0.8em;
   }
 }
 
-.contact-link img {
-  display: block;
-  width: 3em;
-  height: 3em;
-  margin: 0 auto;
+@media only screen and (max-width: 1024px) {
+  #contact-form-side {
+    width: 95%;
+  }
+  
+  #contact-form {
+    padding: 1em 0 2em;
+  }
 }
 
-.contact-link div {
-  width: 100%;
-  font-size: 1.2em;
-  text-align: center;
-  cursor: default;
+#form-name-container {
+  display: inline-block;
+  width: 60%;  
+  padding-right: 1em;
 }
 
-.contact-link a {
-  display: block;
+#form-email-container {
+  display: inline-block;
+  width: 40%;
+}
+
+#form-subject-container {
   width: 100%;
-  font-size: .6em;
-  text-align: center;
-  padding-top: .5em;
+}
+
+#form-message-container {
+  width: 100%;
+}
+
+#form-message {
+  height: 6em;
+}
+
+#form-submit-container {
+  width: 8em;
+  padding-right: 1em;
+}
+
+#form-submit {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 1600px) {
+  input {
+    font-size: .8em;
+  }
 }
 
 /* Footer */
