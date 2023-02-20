@@ -141,12 +141,31 @@ function navMenuItemClickEventHandler(e) {
 
 //Message form submit event handler
 document.getElementById("form-submit").onclick = (event) => {
+  event.preventDefault();
+  const formData = new FormData(document.getElementById("contact-form"));
+  fetch("https://usebasin.com/f/f5c6864fc67e", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+    },
+    body: formData,
+  })
+  .then((response) => {
+    if (response.status === 200) {
+      document.getElementById("form-submit").value="sent";
+      document.getElementById("form-name").value="";
+      document.getElementById("form-email").value="";
+      document.getElementById("form-subject").value="";
+      document.getElementById("form-message").value="";
+      console.log("success");
+    } else {
+      document.getElementById("form-submit").value="error";
+      console.log("fail");
+    }
+  })
+  .catch((error) => console.log(error));
   //Reset the form values
-  document.getElementById("form-name").value="";
-  document.getElementById("form-email").value="";
-  document.getElementById("form-subject").value="";
-  document.getElementById("form-message").value="";
-  document.getElementById("form-submit").value="sent";
+  
 }
 
 //Click event handler for the .screenshotLink elements
