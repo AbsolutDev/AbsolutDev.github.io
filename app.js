@@ -72,7 +72,7 @@ setTimeout(() => {
       }, 100);
     }, 1000);
     
-  }, 5000);
+  }, 3400);
 
 
 //Mouse over and click event handler for the Navigation Menu
