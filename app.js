@@ -8,10 +8,25 @@ let pages = document.getElementsByClassName("page");
 let currentScreenshot;
 let projectName;
 let screenshotScreens;
+let titleWidth = document.getElementById("title").clientWidth;
+let titleHeight = document.getElementById("title").clientHeight;
+let titlesHeight = 0;
 
 //Set #name and #title positions in pixels
 document.getElementById("name").style.paddingRight = document.getElementById("name").clientWidth + "px";
-document.getElementById("title").style.paddingLeft = document.getElementById("title").clientWidth + "px";
+document.getElementById("title").style.paddingLeft = titleWidth  + "px";
+document.getElementById("title-mask-top").style.height = document.getElementById("title-mask-top").clientHeight + document.getElementById("name-container").clientHeight + document.getElementById("name-container").offsetTop + 3 + "px";
+document.getElementById("title-visor").style.width = titleWidth * 2  + "px";
+document.getElementById("title-visor").style.height = document.getElementById("title").clientHeight + "px";
+for (let title of document.getElementsByClassName("title")) {
+  title.style.width = titleWidth * 2  + "px";   //Set each title's width
+  title.style.height = titleHeight + "px";      //Set each title's height
+  title.style.paddingLeft = titleWidth + "px";  //Set each title's padding-left
+  titlesHeight += titleHeight;                  //Sum up all title heights
+}
+document.getElementById("blank-title").style.height = titleHeight + "px"; //Set 'blank' title's height
+//Set 'main' title's position based on the sum of all sub-title heights
+document.getElementById("title").style.top = titlesHeight + "px";
 
 //Assign click event handler to navigation menu items
 let menuItems = document.getElementsByClassName("nav-menu-item");
@@ -25,8 +40,16 @@ for (let i=0;i<screenshotLinks.length;i++) {
   screenshotLinks[i].onclick = screenshotLinksClickEventHandler;
 }
 
-//Initiate intro animation 1s after load
+//Initiate titles animation
 setTimeout(() => {
+  document.getElementById("titles-container").style.top = "-" + titlesHeight + "px";
+  document.getElementById("title").style.top = 0;
+}, 100);
+
+//Initiate whole header animation 5s after titles animation
+setTimeout(() => {
+  document.getElementById("title-visor-container").style.display = "none";
+  document.getElementById("titles-container").style.display = "none";
   document.getElementById("name").style.transitionDuration = "1s";
   document.getElementById("title").style.transitionDuration = "1s";
   document.getElementById("name").style.paddingRight = 0;
@@ -48,7 +71,9 @@ setTimeout(() => {
       document.getElementById("contact-section").style.opacity = "1";
       }, 100);
     }, 1000);
-  }, 1000 /*2500*/);
+    
+  }, 5000);
+
 
 //Mouse over and click event handler for the Navigation Menu
 function navMenuReveal() {
