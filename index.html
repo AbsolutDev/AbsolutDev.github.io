@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@200;400&family=Racing+Sans+One&family=Roboto:wght@900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./reset.css" type="text/css">
+  <link rel="stylesheet" href="./style.css" type="text/css">
   <script src="./app.js" defer></script>
   <script src="./sendmail.js" defer type=”module”></script>
   <title>Gabriel Iliescu - Front End Developer</title>
@@ -25,7 +26,7 @@
     </div>
     <div id="title-container">
       <div id="titles-container">
-        <div id="blank-title" class="title"></div>
+        <div id="blank-title" class="title"> </div>
         <div class="title">HTML</div>
         <div class="title">CSS</div>
         <div class="title">JavaScript</div>
@@ -78,21 +79,25 @@
       <div id="about-first-paragraph">
         <img src="./img/family.jpg" />
         <div>
-          <div id="about-page-hello">Hello!</div>
-          <div>Originally from Bucharest, Romania, my interest in web development started in the early 2000s playing around with HTML4, CSS and even a bit of JavaScript. However, a different journey started in 2003 when I had the privilege of joining a global company that offered me the right environment and opportunities to grow and develop into becoming an experienced IT professional.</div>
+          <div id="about-page-hello">
+            h<em class="red">e</em>llo!
+          </div>
+          <div>
+            Originally from Bucharest, Romania, my interest in web development started in the early 2000s playing around with HTML4, CSS and even a bit of JavaScript. However, I went on a completely different journey in 2003 when I had the privilege of joining a global company that offered me the right environment and opportunities to grow and develop into becoming an experienced IT professional.
+          </div>
         </div>
       </div>
       <div class="about-page-content">
-        Having had roles in various IT areas, from Technical Consultancy and Business Analysis to Project and IT Service Management, I had the chance to meet and work with wonderful people and have successfully collaborated with stakeholders at any levels, from IT engineers to top team business managers, often acting as "the translator". While I do enjoy the focus of delivering independently, I am just as well comfortable leading teams of any sizes.
+        Having had roles in various IT areas, from Technical Consultancy and Business Analysis to Project and IT Service Management, I had the chance to meet and work with wonderful people, successfully collaborating with stakeholders at any levels, from IT engineers to top team business managers.
       </div>
       <div class="about-page-content">
-        One of the roles I have accepted has required relocation to London, where I currently live with my wife and 9 years old daughter.
+        One of the roles I have accepted has required me to relocate to London, where I currently live with my wife and 9 years old daughter.
       </div>
       <div class="about-page-content">
         Fast forward to mid-2019, I have decided that after 15+ years it is time to move on and so I have accepted voluntary redundancy. The COVID-19 pandemic put on hold my plans of returning to work, however it gave me the chance to spend time homeschooling my daughter and also explore different areas in technology, from Cloud architecture and containerization, to network management and Internet of Things. This, together with the abundance of tools and courses available online nowadays, lead me to rediscovering my passion for coding and for designing and creating things that have real purpose.
       </div>
       <div class="about-page-content">
-        I am quietly confident, naturally curious and detail oriented, perpetually working on improving one step at a time. I like to code things from scratch and enjoy bringing ideas to life on the computer, which is what excites me most about working in software development. I am customer focused and have often come out as "the problem solver", but I guess one of my strenghts is the ability to keep calm and stay focused even under stressful circumstances.
+        I am quietly confident, naturally curious and detail oriented, perpetually working on improving one step at a time. I like to code things from scratch and enjoy bringing ideas to life on the computer, which is what excites me most about working in software development. I am customer focused and have often come out as "the problem solver", but probably one of my strenghts is the ability to keep calm and stay focused even under stressful circumstances. While I do enjoy the focus of delivering independently, I am just as well comfortable leading teams of any sizes.
       </div>
       <div class="about-page-content">
         When I am not in front of my laptop, you'll find me listening to music, watching a good movie, cooking, gardening, outside in a park with my daughter or exploring the cliffs in Cornwall.
@@ -164,17 +169,20 @@
           <span>Expertise</span>
         </div>
         <div class="exp-skills">
-          <em class="blue">Web Development</em>&#160• HTML&#160• CSS&#160• JavaScript&#160• React&#160• Redux&#160• React Testing&#160• SPA&#160• SEO&#160•
-          Linting&#160• Data Structures&#160• Git&#160• GitHub&#160• Markdown
+          <em class="blue">Web Development</em>&#160• HTML&#160• CSS&#160• JavaScript&#160• React&#160• Redux&#160• React Testing&#160• Mocha.js&#160• Jest&#160• TypeScript&#160• SPA&#160• SEO&#160•
+          Node.js&#160• WebPack
         </div>
         <div class="exp-skills">
-          Processing&#160• Arduino
+          <em class="blue">Dev Tools & Practices</em>&#160• Agile&#160• DevOps&#160• CI/CD&#160• SCM&#160• git&#160• GitHub&#160• TDD&#160• BDD
         </div>
         <div class="exp-skills">
           <em class="blue">Cloud Architecture</em>&#160• <em class="blue">Cloud Operations</em>&#160• AWS&#160• Azure&#160• Docker&#160• Kubernetes
         </div>
         <div class="exp-skills">
-          <em class="blue">Project Management</em>&#160• <em class="blue">IT Service Management</em>&#160• Change Management&#160• Incident Management&#160• Business Analysis&#160• Business Engagement
+          <em class="blue">IoT & Misc</em>&#160• Processing&#160• Arduino&#160• Data Structures
+        </div>
+        <div class="exp-skills">
+          <em class="blue">Project Management</em>&#160• <em class="blue">IT Service Management</em>&#160• IT Infrastructure Management&#160• Change Management&#160• Incident Management&#160• Business Analysis&#160• Business Engagement
         </div>
       </div>
     </div>
@@ -296,6 +304,9 @@
           </div>
 
           <div id="form-submit-container">
+            <div id="form-about">
+              <img src="./img/basin.png" alt="Powered by Basin"/>
+            </div>
             <input id="form-submit" type="submit" value="send">
           </div>
         </form>
