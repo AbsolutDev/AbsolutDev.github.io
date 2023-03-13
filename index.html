@@ -10,10 +10,21 @@
   <link rel="stylesheet" href="./reset.css" type="text/css">
   <link rel="stylesheet" href="./style.css" type="text/css">
   <script src="./app.js" defer></script>
-  <script src="./sendmail.js" defer type=”module”></script>
   <title>Gabriel Iliescu - Front End Developer</title>
 </head>
 <body>
+  <script type="text/javascript">
+    function configureAhoy() {
+      ahoy.configure({
+        visitsUrl: "https://usebasin.com/ahoy/visits",
+        eventsUrl: "https://usebasin.com/ahoy/events",
+        page: "55ba124f7b43"
+      });
+      ahoy.trackView();
+      ahoy.trackSubmits();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/ahoy.js@0.3.9/dist/ahoy.min.js" async defer onload="configureAhoy()"></script>
   <header id="header">
     <div id="name-container">
       <div id="name">Gabriel ILIESCU</div>
