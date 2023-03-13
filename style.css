@@ -298,12 +298,6 @@ main {
   transition: opacity 0.5s ease-in;
 }
 
-@media only screen and (max-width: 768px),  (max-width: 1024px) and (orientation: portrait) {
-  .page {
-    margin: 0 2rem 4rem;
-  }
-}
-
 .page.hidden {
   opacity: 0;
   z-index: 0;
@@ -488,16 +482,19 @@ em.lightblue {
   height: 12rem;
   background-size: cover;
   background-position: top;
+  background-color: hsl(0, 0%, 100%);
   margin: 2rem 0;
+  border-radius: .5rem;
 }
 
 .title-banner span {
   position: absolute;
   left: 0.5rem;
   bottom: 0.2rem;
-  color:hsl(0, 0%, 100%);
-  font-size: 2em;
+  color: hsl(0, 0%, 90%);
+  font-size: 2.5em;
   font-weight: 700;
+  text-shadow: 2px 2px 5px hsl(0, 0%, 15%);
 }
 
 #certifications {
