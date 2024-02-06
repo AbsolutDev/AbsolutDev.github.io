@@ -1,254 +1,234 @@
-//Assign event handlers to screenshots overlay control buttons
-document.getElementById("screenshots-close").onclick = screenshotCloseClickEventHandler;
-document.getElementById("screenshots-skip-left").onclick = screenshotsSkipLeftClickEventHandler;
-document.getElementById("screenshots-skip-right").onclick = screenshotsSkipRightClickEventHandler;
+const skillsList = ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'REDUX', 'VUE.JS', 'TYPESCRIPT', 'JQUERY', 'SASS', 'TAILWIND CSS', 'REACT NATIVE', 'NODE.JS', 'POSTGRESQL', 'EXPRESS.JS', 'C#'];
+const skillsSideElement = document.getElementById('skills-side');
+const enterButton = document.getElementById('enter-button-container');
+const skipIntro = true;
 
-//Global variables assignment
-let pages = document.getElementsByClassName("page");
-let currentScreenshot;
-let projectName;
-let screenshotScreens;
-let titleWidth = document.getElementById("title").clientWidth;
-let titleHeight = document.getElementById("title").offsetHeight;
-let titlesHeight = 0;
-
-//Set #name and #title positions in pixels
-document.getElementById("name").style.paddingRight = document.getElementById("name").clientWidth + "px";
-document.getElementById("title").style.paddingLeft = titleWidth  + "px";
-document.getElementById("title-visor").style.height = titleHeight + 5 + "px";
-document.getElementById("titles-box").style.height = titleHeight + "px";
-
-for (let title of document.getElementsByClassName("title")) {
-  title.style.height = titleHeight + "px";      //Set each title's height
-  titlesHeight += titleHeight;                  //Sum up all title heights
-}
-//Set 'main' title's position based on the sum of all sub-title heights
-document.getElementById("title").style.top = titlesHeight + "px";
-
-//Assign click event handler to navigation menu items
-let menuItems = document.getElementsByClassName("nav-menu-item");
-for (let i=0;i<menuItems.length;i++) {
-  menuItems[i].onclick = navMenuItemClickEventHandler;
-}
-
-///Assign click event handler to .screenshotLink elements
-let screenshotLinks = document.getElementsByClassName("screenshot-link");
-for (let i=0;i<screenshotLinks.length;i++) {
-  screenshotLinks[i].onclick = screenshotLinksClickEventHandler;
-}
-
-//Initiate titles animation
-setTimeout(() => {
-  document.getElementById("titles-container").style.top = "-" + (titlesHeight + 10) + "px";
-  document.getElementById("title").style.top = 0;
-  document.getElementById("title-visor").style.top = "0%";
-}, 100);
-
-//Initiate whole header animation 5s after titles animation
-setTimeout(() => {
-  document.getElementById("title-visor").style.display = "none";
-  document.getElementById("titles-container").style.display = "none";
-  document.getElementById("name").style.transitionDuration = "1s";
-  document.getElementById("title").style.transitionDuration = "1s";
-  document.getElementById("name").style.paddingRight = 0;
-  document.getElementById("title").style.paddingLeft = 0;
-  document.getElementById("title-hr").style.transform = "rotate(0deg)";
-  document.getElementById("header").style.top = "0";
-  document.getElementById("title-hr").style.width = "50%";
-  document.getElementById("nav-menu").style.opacity = "1";
-  setTimeout(() => {
-    //Display Home Page and Footer
-    document.getElementById("home-page").className = "page active";
-    document.getElementById("contact-section").style.display = "flex";
-    //Assign event handlers to navigation menu
-    document.getElementById("nav-menu").onmouseover = navMenuReveal;
-    document.getElementById("header").onmouseover = navMenuReveal;
-    document.getElementById("nav-menu").onclick = navMenuItemClickEventHandler;
-    document.getElementById("nav-menu").onmouseout = navMenuConceal;
-    setTimeout(() => {
-      document.getElementById("contact-section").style.opacity = "1";
-      }, 100);
-    }, 1000);
-    
-  }, 4800);
-
-//Mouse over and click event handler for the Navigation Menu
-function navMenuReveal() {
-  if (document.getElementById("nav-menu").style.opacity === "1") {
-    for (let i=0;i<menuItems.length;i++) {
-      if (menuItems[i].className === "nav-menu-item hidden") {
-        menuItems[i].className = "nav-menu-item";
-      }
+const navItems = document.getElementsByClassName('nav-item-container');
+const screens = document.getElementsByClassName('page');
+for (let screen of screens) {
+  screen.addEventListener('transitionend', (event) => {
+    if (event.propertyName === 'opacity' && event.target.style.opacity === '0') {
+      event.target.style.display = 'none';
     }
-  }
-}
-
-//Mouse out event handler for the Navigation Menu
-function navMenuConceal() {
-  if (document.getElementById("nav-menu").style.opacity === "1") {
-    for (let i=0;i<menuItems.length;i++) {
-      if (menuItems[i].className !== "nav-menu-item active") {
-        menuItems[i].className="nav-menu-item hidden";
-      }
-    }
-  }
-}
-
-//Click event handler for Navigation Menu items
-function navMenuItemClickEventHandler(e) {
-  if (e.pointerType !== "touch" || e.target.className === "nav-menu-title") {
-    const pageToDisplay = e.target.innerHTML || e.target.nextElementSibling.innerHTML;
-    if (document.getElementById(pageToDisplay.toLowerCase() + "-page").className !== "page active") {
-      for (let i=0;i<pages.length;i++) {
-        if (pages[i].className === "page active") {
-          pages[i].className = "page hidden";
-          menuItems[i].className="nav-menu-item";
-          e.target.parentNode.className = "nav-menu-item active";
-          document.getElementById("contact-section").style.opacity = "0";
-          setTimeout(() => {
-            pages[i].style.display = "none";
-            document.getElementById(pageToDisplay.toLowerCase() + "-page").style.display = "flex";
-            document.getElementById("form-name").value="";
-            document.getElementById("form-email").value="";
-            document.getElementById("form-subject").value="";
-            document.getElementById("form-message").value="";
-            document.getElementById("form-submit").value="send";
-            if (pageToDisplay.toLowerCase() === "contact") {
-              document.getElementById("contact-section").style.display = "none";
-            } else {
-              document.getElementById("contact-section").style.display = "flex";
-            }
-            }, 500);
-          break;
-        }
-      }
-      setTimeout(() => {
-        document.getElementById(pageToDisplay.toLowerCase() + "-page").className="page active";
-        document.getElementById("main").scrollIntoView({behaviour: "auto", block: "start"});
-        if (e.pointerType === "touch") {
-          navMenuConceal();
-        }
-        if (pageToDisplay.toLowerCase() !== "contact") {
-          document.getElementById("contact-section").style.opacity = "1";
-        }
-        }, 600);
-    }
-  }
-}
-
-//Message form submit event handler
-document.getElementById("form-submit").onclick = (event) => {
-  event.preventDefault();
-  const formData = new FormData(document.getElementById("contact-form"));
-  fetch("https://usebasin.com/f/f5c6864fc67e", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-    },
-    body: formData,
   })
-  .then((response) => {
-    if (response.status === 200) {
-      document.getElementById("form-submit").value="sent";
-      document.getElementById("form-name").value="";
-      document.getElementById("form-email").value="";
-      document.getElementById("form-subject").value="";
-      document.getElementById("form-message").value="";
-      console.log("success");
+}
+let displayedPage;
+
+//Intro animations
+function animateChars(text, parentId, childClass, allCaps, start, delay) {
+  const parentElement = document.getElementById(parentId);
+  let timer = start;
+  if (allCaps) text = text.toUpperCase();
+  const textChars = text.split('');
+  textChars.forEach((char) => {
+    const charElement = document.createElement('div');
+    charElement.className = childClass;
+    if (char === ' ') {
+      charElement.innerText = String.fromCharCode(160);
     } else {
-      document.getElementById("form-submit").value="error";
-      console.log("fail");
+      charElement.innerText = char;
     }
-  })
-  .catch((error) => console.log(error));
-  //Reset the form values
-  
-}
-
-//Click event handler for the .screenshotLink elements
-function screenshotLinksClickEventHandler(e) {
-  //Retrieve the project name
-  projectName = e.target.classList[1];
-  
-  //Display the Screenshots Overlay
-  document.getElementById("screenshots-overlay").style.display = "block";
-  setTimeout(() => {
-    document.getElementById("screenshots-overlay").className = "active";
-    document.body.style.overflowY = "hidden";
-    }, 300);
-
-  //Display the project's screenshots
-  document.getElementById(projectName + "-screenshots").style.display = "block";
-  
-  //Retrieve the screenshot screens
-  screenshotScreens = document.getElementById(projectName + "-screenshots").children;
-  //Set the first screenshot screen active
-  screenshotScreens[0].className = "screenshot active";
-  currentScreenshot = 0;
-  //Move the other screenshot screens to the right
-  for (let i=1; i < screenshotScreens.length;i++) {
-    screenshotScreens[i].className = "screenshot right";
-  }
-  //Display the Skip Right button
-  if (screenshotScreens.length > 1) {
-    document.getElementById("screenshots-skip-right").style.display = "flex";
-  }
-  setTimeout(() => {
-    //Reveal the screenshots container
-    document.getElementById(projectName + "-screenshots").style.opacity = "1";
-    }, 500);
-}
-
-//Click event handler for the Close Screenshot Overlay button
-function screenshotCloseClickEventHandler() {
-  //Hide the screenshots container
-  document.getElementById(projectName + "-screenshots").style.opacity = "0";
-  setTimeout(() => {
-    document.getElementById(projectName + "-screenshots").style.display = "none";
-    }, 1000);
-  
-  //Hide the screenshots overlay element
-  setTimeout(() => {
-    document.getElementById("screenshots-overlay").className = "";
-    document.body.style.overflowY = "auto";
-    //Remove skip and close buttons
+    parentElement.append(charElement);
     setTimeout(() => {
-      document.getElementById("screenshots-skip-right").style.display = "none";
-      document.getElementById("screenshots-skip-left").style.display = "none";
-      document.getElementById("screenshots-overlay").style.display = "none";
-      }, 1000);
-    }, 300);
+      charElement.style.marginTop = '0';
+    }, timer += delay);
+  })
 }
 
-//Click event handler for Skip Left button
-function screenshotsSkipLeftClickEventHandler() {
-  //Move current screenshot to the right
-  screenshotScreens[currentScreenshot].className = "screenshot right";
-  //Change to previous screenshot and make active
-  currentScreenshot--;
-  screenshotScreens[currentScreenshot].className = "screenshot active";
-  //Remove Skip Left button if current screenshot is the first
-  if (currentScreenshot === 0) {
-    document.getElementById("screenshots-skip-left").style.display = "none";
-  }
-  //Show Skip Right botton if previous screenshot was the last
-  if (currentScreenshot === screenshotScreens.length - 2) {
-    document.getElementById("screenshots-skip-right").style.display = "flex";
+function addSkills() {
+  let timer = 100;
+  skillsList.forEach((skill, index) => {
+    const skillElement = document.createElement('div');
+    skillElement.innerText = skill;
+    skillElement.className = 'skill';
+    skillElement.style.opacity = '0';
+    skillsSideElement.append(skillElement);
+    if (index === 0) {
+      //Prepend a blank element with same height as 1st skill element
+      const blankElement = document.createElement('div');
+      const firstElementHeight = skillElement.offsetHeight;
+      blankElement.className = 'skill';
+      blankElement.style.height = firstElementHeight + 'px';
+      skillsSideElement.style.top = '-' + firstElementHeight - 1 + 'px';
+      skillsSideElement.style.height = skillsSideElement.offsetHeight + firstElementHeight + 'px';
+      skillsSideElement.prepend(blankElement);
+    }
+    skillElement.style.height = skillElement.offsetHeight + 'px';
+    setTimeout(() => {
+      skillElement.style.opacity = '1';
+    }, timer += 100);
+  })
+  const lastElement = skillsSideElement.childNodes[skillsSideElement.childNodes.length - 1];
+  if (lastElement.offsetTop + lastElement.offsetHeight > skillsSideElement.offsetTop + skillsSideElement.offsetHeight) {
+    //Last element overflows its container
+    skillsSideElement.childNodes[0].addEventListener('transitionend', slideSkillsUpHandler)
+    setTimeout(() => {
+      skillsSideElement.childNodes[0].style.height = '0px';
+    }, 1000);
   }
 }
 
-function screenshotsSkipRightClickEventHandler() {
-  //Move current screenshot to the left
-  screenshotScreens[currentScreenshot].className = "screenshot left";
-  //Change to next screenshot and make active
-  currentScreenshot++;
-  screenshotScreens[currentScreenshot].className = "screenshot active";
-  //Display Skip Left button if previous screenshot was the first
-  if (currentScreenshot === 1) {
-    document.getElementById("screenshots-skip-left").style.display = "flex";
-  }
-  //Remove Skip Right button if current screenshot is the last
-  if (currentScreenshot === screenshotScreens.length - 1) {
-    document.getElementById("screenshots-skip-right").style.display = "none";
+function slideSkillsUpHandler() {
+  skillsSideElement.childNodes[0].removeEventListener('transitionend', slideSkillsUpHandler);
+  skillsSideElement.removeChild(skillsSideElement.childNodes[0]);
+  const newElement = document.createElement('div');
+  newElement.className = 'skill';
+  newElement.innerText = skillsSideElement.childNodes[0].innerText;
+  newElement.style.height = skillsSideElement.childNodes[0].offsetHeight + 'px';
+  skillsSideElement.append(newElement);
+  skillsSideElement.childNodes[0].innerText = '';
+  skillsSideElement.childNodes[0].addEventListener('transitionend', slideSkillsUpHandler)
+  skillsSideElement.childNodes[0].style.height = '0px';
+}
+
+function displayElement(element, displaySetting, delay = 0) {
+  setTimeout(() => {
+    element.style.display = displaySetting;
+    setTimeout(() => {
+      element.style.opacity = '1';
+    }, 50);
+  }, delay)
+}
+
+function fadeOutElement(element, delay = 0) {
+  setTimeout(() => {
+    element.style.opacity = '0';
+  }, delay)
+}
+
+function exitLeft(element, delay = 0) {
+  element.style.left = '0px';
+  setTimeout(() => {
+    element.style.left = -(element.offsetLeft + element.offsetWidth) + 'px';
+    element.style.opacity = '0';
+  }, delay)
+}
+
+function slideIn(element, side, delay = 0) {
+  switch (side) {
+    case 'top':
+      setTimeout(() => {
+        element.style.top = '0px';
+      }, delay);
+      break;
+    case 'left':
+      setTimeout(() => {
+        element.style.left = '0px';
+      }, delay);
+      break;
+    case 'right':
+      setTimeout(() => {
+        element.style.right = '0px';
+      }, delay);
+      break;
+    default:
+      break;
   }
 }
+
+function removeElement(element, delay = 0) {
+  setTimeout(() => {
+    element.parentElement.removeChild(element);
+  }, delay)
+}
+
+if (!skipIntro) {
+  addSkills();
+  animateChars('Web Developer', 'anim-title', 'anim-title-char', true, 500, 100);
+  animateChars('Gabriel Iliescu', 'anim-name', 'anim-name-char', false, 700, 100);
+  displayElement(enterButton, 'inline-block', 2000);
+
+  enterButton.onclick = (() => {
+    let delay = 300;
+    document.body.style.overflow = 'hidden';
+    exitLeft(document.getElementById('anim-name'), 100);
+    exitLeft(document.getElementById('anim-title'), 300);
+    exitLeft(document.getElementById('bottom-side'), 600);
+    exitLeft(document.getElementById('skills-side'), 600);
+    removeElement(document.getElementById('intro-screen'), 1200);
+    displayElement(document.getElementById('main-screen'), 'block', 800);
+    setTimeout(() => {
+      slideIn(document.getElementById('main-header'), 'top', 400);
+      document.getElementById('nav-menu-container').childNodes.forEach((element) => {
+        if (element.nodeType === 1) {
+          slideIn(element, 'left', delay);
+          delay += 100;
+        }
+      });
+      delay = 400;
+      document.getElementById('nav-icons-container').childNodes.forEach((element) => {
+        if (element.nodeType === 1) {
+          slideIn(element, 'left', delay);
+          delay += 250;
+        }
+      });
+      transitionToPage(0, 300);
+    }, 800);
+  });
+} else {
+  removeElement(document.getElementById('intro-screen'));
+  displayElement(document.getElementById('main-screen'), 'block', 50);
+  document.getElementById('main-header').style.top = 0;
+  document.getElementById('nav-menu-container').childNodes.forEach((element) => {
+    if (element.nodeType === 1) {
+      element.style.left = 0;
+    }
+  });
+  document.getElementById('nav-icons-container').childNodes.forEach((element) => {
+    if (element.nodeType === 1) {
+      element.style.left = 0;
+    }
+  });
+  displayElement(document.getElementById('page-home'), 'flex');
+  document.getElementById('page-home-title').style.right = 0;
+  document.getElementById('page-home-message').style.right = 0;
+  transitionToPage(0, 300);
+}
+
+//Page transitions
+function transitionToPage(pageIndex, delay = 0) {
+  delay+=400;
+  if (displayedPage !== undefined) {
+    fadeOutElement(screens[displayedPage]);
+  }
+  switch (pageIndex) {
+    case 0:
+      displayElement(document.getElementById('page-home'), 'flex', delay);
+      slideIn(document.getElementById('page-home-title'), 'right', delay + 200);
+      slideIn(document.getElementById('page-home-message'), 'right', delay + 400);
+      //document.body.style.overflow = 'auto';
+      break;
+    case 1:
+      displayElement(document.getElementById('page-about'), 'block', delay);
+      document.getElementById('page-about').children[0].style.opacity = '1';
+      break;
+    case 2:
+      displayElement(document.getElementById('page-skills'), 'flex', delay);
+      break;
+    case 3:
+      displayElement(document.getElementById('page-portfolio'), 'flex', delay);
+      break;
+    case 4:
+      displayElement(document.getElementById('page-contact'), 'flex', delay);
+      break;
+  }
+  displayedPage = pageIndex;
+}
+
+//Navigation menu
+for (let navItem of navItems) {
+  navItem.addEventListener('click', navItemClickEventHandler);
+}
+
+function navItemClickEventHandler(event) {
+  const element = event.target.classList[0] === 'nav-item-container' ? event.target : event.target.parentNode;
+  const elementIndex = (Array.prototype.indexOf.call(element.parentNode.childNodes, element) - 1) / 2;
+  if (elementIndex !== displayedPage) {
+    navItems[displayedPage].classList.remove('selected');
+    navItems[elementIndex].classList.add('selected');
+    transitionToPage(elementIndex, 100);
+  }
+}
+
+//About me page
+
