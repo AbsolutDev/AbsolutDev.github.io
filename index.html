@@ -3,31 +3,48 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Page title</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="viewport-fit=cover, user-scalable=no" />
+  <script>
+    let deviceType = 'computer';
+    if (/iPhone|iPod/i.test(navigator.userAgent)) {
+      deviceType = 'iPhone';
+    } else if (/Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && !navigator.userAgent.includes('iPad')) {
+      deviceType = 'mobile';
+    } else if (navigator.userAgentData === undefined || navigator.userAgent.includes('iPad')) {
+      deviceType = 'iPad';
+    }
+  </script>
   <script src="./app.js" type="module" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./reset.css" type="text/css">
   <link rel="stylesheet" href="./style.css" type="text/css">
+  <title>Page title</title>
 </head>
 
 <body>
   <div id="line40">60</div>
   <div id="line50">80</div>
-  <div id="intro-screen">
+  <div id="intro-screen" class="prevent-select">
     <div id="skills-side"></div>
     <div id="top-side">
       <div id="anim-name" class="anim-container"></div>
       <div id="anim-title" class="anim-container"></div>
+      <div id="front-name-title-container">
+        <div id="front-name">Gabriel Iliescu</div>
+        <div id="front-title">Web Developer</div>
+      </div>
     </div>
     <div id="bottom-side">
       <div id="bottom-side-container">
+        <div id="mode-button">
+          <div></div>
+          <div></div>
+        </div>
         <div id="enter-button-container">
           <div id="enter-text">[ENTER<div id="blinking-underscore">_</div>]</div>
-        </div>
-        <div id="mode-button-container">
-          <div id="mode-button"></div>
         </div>
       </div>
     </div>
@@ -70,19 +87,20 @@
         <div class="section-container">
           <div id="about-pages-container">
             <div class="about-page">
-              <div class="about-paragraph single-paragraph">
-                <span class="emph2 bigger40">Detail oriented</span><br />
-                <span class="emph2 bigger60">naturally curious</span> <span class="smaller08">and</span><br />
-                <span class="emph2 bigger40">quietly confident</span><br />
-                I love the process of coding things from scratch<br />
-                and bringing ideas to life on the computer,<br />
-                which is what excites me most about a career in<br />
+              <div class="about-paragraph">
+                <span class="emph2 bigger60">Detail oriented</span>,
+                <span class="emph2 bigger60">naturally curious</span> <span class="smaller08">and</span>
+                <span class="emph2 bigger60">quietly confident</span>,
+                I love the process of coding things from scratch
+                and bringing ideas to life on the computer,
+                which is what excites me most about a career in
                 <span class="emph1 bigger40">software development.</span>
               </div>
             </div>
+            
             <div class="about-page">
               <div class="about-paragraph">
-                Originally from <span class="emph1 bigger20">Bucharest, Romania</span><br />
+                Originally from <span class="emph1 bigger20">Bucharest, Romania</span>,
                 my interest in web development started in
                 the early 2000s playing around with <span class="emph2">HTML4</span>, <span class="emph2">CSS</span> and
                 even a bit of <span class="emph2">JavaScript</span>.
@@ -93,6 +111,7 @@
                   company</span> that has enabled me to grow into an <span class="emph1 bigger40">experienced IT
                   professional</span>.
               </div>
+              <div class="about-page-separator"></div>
             </div>
             <div class="about-page">
               <div class="about-paragraph">
@@ -109,6 +128,7 @@
                 passion
                 for <span class="emph1">coding</span> and for designing and creating things that have real purpose.
               </div>
+              <div class="about-page-separator"></div>
             </div>
             <div class="about-page">
               <img src="./assets/img/151824671.jpg" />
@@ -204,9 +224,21 @@
               <div class="certificate-issuer"></div>
             </div>
             <div id="skills-other">
-              <span>AWS</span><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>SCM</span><span>TDD</span><span>BDD</span><span>Project
-                Management</span><span>Business Analysis</span><span>IT Service
-                Management</span><span>CompTIA+</span><span>Processing</span><span>Arduino</span><span>IoT</span>
+              <div><span>AWS</span></div>
+              <div><span>Azure</span></div>
+              <div><span>Docker</span></div>
+              <div><span>Kubernetes</span></div>
+              <div><span>CI/CD</span></div>
+              <div><span>SCM</span></div>
+              <div><span>TDD</span></div>
+              <div><span>BDD</span></div>
+              <div><span>Project Management</span></div>
+              <div><span>Business Analysis</span></div>
+              <div><span>IT Service Management</span></div>
+              <div><span>CompTIA+</span></div>
+              <div><span>Processing</span></div>
+              <div><span>Arduino</span></div>
+              <div><span>IoT</span></div>
             </div>
           </div>
         </div>
@@ -224,68 +256,42 @@
             <div class="project1 project-thumb">
               <img class="project-thumb-bg-image" src="./assets/img/project1-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
-                  <span class="quickr-title quickr-title-left">quick</span><span
-                    class="quickr-title quickr-title-right">R</span>
-                </div>
                 <div class="project-thumb-description">A simple Reddit client</div>
-                <div class="project-thumb-caption-bottom">
-                  <div class="project-thumb-button">Click for details</div>
-                </div>
+                <div class="project-thumb-button">Click for details</div>
               </div>
             </div>
             <div class="project2 project-thumb">
               <img class="project-thumb-bg-image" src="./assets/img/project2-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
-                  Project Portfolio
-                </div>
                 <div class="project-thumb-description">This very website</div>
-                <div class="project-thumb-caption-bottom">
-                  <div class="project-thumb-button">Click for details</div>
-                </div>
+                <div class="project-thumb-button">Click for details</div>
               </div>
             </div>
             <div class="project3 project-thumb">
               <img class="project-thumb-bg-image" src="./assets/img/project3-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
-                  <img src="./assets/img/project3/infopad-logo.png" />
-                </div>
                 <div class="project-thumb-description">The home information dashboard</div>
-                <div class="project-thumb-caption-bottom">
-                  <div class="project-thumb-button">Click for details</div>
-                </div>
+                <div class="project-thumb-button">Click for details</div>
               </div>
             </div>
             <div class="project4 project-thumb">
               <img class="project-thumb-bg-image" src="./assets/img/project4-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
-                  American Poker Game
-                </div>
                 <div class="project-thumb-description">An arcade game replica</div>
-                <div class="project-thumb-caption-bottom">
-                  <div class="project-thumb-button">Click for details</div>
-                </div>
+                <div class="project-thumb-button">Click for details</div>
               </div>
             </div>
             <div class="project5 project-thumb">
               <img class="project-thumb-bg-image" src="./assets/img/project5-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
-                  Pizza-Mkr
-                </div>
                 <div class="project-thumb-description">MYO Pizza Mobile App</div>
-                <div class="project-thumb-caption-bottom">
-                  <div class="project-thumb-button">Click for details</div>
-                </div>
+                <div class="project-thumb-button">Click for details</div>
               </div>
             </div>
             <div class="project6 project-thumb dummy">
               <img class="project-thumb-bg-image" src="./assets/img/project6-thumb.png" />
               <div class="project-thumb-caption">
-                <div class="project-thumb-title">
+                <div class="project-thumb-description">
                   Coming soon
                 </div>
               </div>
@@ -315,8 +321,8 @@
                   <div class="project-section-text">
                     Portfolio project part of the <a
                       href="https://www.codecademy.com/learn/paths/front-end-engineer-career-path"
-                      target="_blank">Engineer Career Path</a> course from <a href="https://www.codecademy.com/"
-                      target="_blank">Codecademy</a>
+                      target="_blank" class="project-section-hlink">Engineer Career Path</a> course from <a href="https://www.codecademy.com/"
+                      target="_blank" class="project-section-hlink">Codecademy</a>
                   </div>
                 </div>
                 <div class="project-info-technologies project-info-section">
@@ -339,9 +345,6 @@
                   </div>
                   <div class="screenshots-visor">
                     <div class="screenshot">
-                      <img class="project-screenshot" src="./assets/img/project1/project1_1.jpg" />
-                    </div>
-                    <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_2.jpg" />
                     </div>
                     <div class="screenshot">
@@ -352,6 +355,9 @@
                     </div>
                     <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_5.jpg" />
+                    </div>
+                    <div class="screenshot">
+                      <img class="project-screenshot" src="./assets/img/project1/project1_1.jpg" />
                     </div>
                     <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_6.jpg" />
@@ -373,14 +379,14 @@
                   </div>
                   <div class="project-section-text">
                     <a href="https://celadon-malabi-4b4a22.netlify.app"
-                      target="_blank">https://celadon-malabi-4b4a22.netlify.app</a>
+                      target="_blank" class="project-section-hlink">https://celadon-malabi-4b4a22.netlify.app</a>
                   </div>
                   <div class="project-section-title">
                     GitHub
                   </div>
                   <div class="project-section-text">
                     <a href="https://github.com/AbsolutDev/reddit-client"
-                      target="github">https://github.com/AbsolutDev/reddit-client</a>
+                      target="github" class="project-section-hlink">https://github.com/AbsolutDev/reddit-client</a>
                   </div>
                   <div class="project-info-links-filler"></div>
                 </div>
@@ -407,9 +413,6 @@
                   </div>
                   <div class="screenshots-visor">
                     <div class="screenshot">
-                      <img class="project-screenshot" src="./assets/img/project1/project1_1.jpg" />
-                    </div>
-                    <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_2.jpg" />
                     </div>
                     <div class="screenshot">
@@ -420,6 +423,9 @@
                     </div>
                     <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_5.jpg" />
+                    </div>
+                    <div class="screenshot">
+                      <img class="project-screenshot" src="./assets/img/project1/project1_1.jpg" />
                     </div>
                     <div class="screenshot">
                       <img class="project-screenshot" src="./assets/img/project1/project1_6.jpg" />
@@ -487,7 +493,7 @@
                   </div>
                   <div class="project-section-text">
                     <a href="https://github.com/AbsolutDev/AbsolutDev.github.io"
-                      target="github">https://github.com/AbsolutDev/AbsolutDev.github.io</a>
+                      target="github" class="project-section-hlink">https://github.com/AbsolutDev/AbsolutDev.github.io</a>
                   </div>
                 </div>
               </div>
@@ -571,7 +577,7 @@
                   </div>
                   <div class="project-section-text">
                     <a href="https://github.com/AbsolutDev/infoPad"
-                      target="github">https://github.com/AbsolutDev/infoPad</a>
+                      target="github" class="project-section-hlink">https://github.com/AbsolutDev/infoPad</a>
                   </div>
                 </div>
               </div>
@@ -678,7 +684,7 @@
                   </div>
                   <div class="project-section-text">
                     <a href="https://github.com/AbsolutDev/American-Poker-Game"
-                      target="github">https://github.com/AbsolutDev/American-Poker-Game</a>
+                      target="github" class="project-section-hlink">https://github.com/AbsolutDev/American-Poker-Game</a>
                   </div>
                 </div>
               </div>
@@ -741,7 +747,7 @@
                     About
                   </div>
                   <div class="project-section-text">
-                    Fully functional (front end) pizza ordering mobile app
+                    Fully functional pizza ordering mobile app (front-end)
                   </div>
                 </div>
                 <div class="project-info-technologies project-info-section">
@@ -795,14 +801,14 @@
                   </div>
                   <div class="project-section-text">
                     <a href="https://github.com/AbsolutDev/rn-pizza-factory"
-                      target="github">https://github.com/AbsolutDev/rn-pizza-factory</a>
+                      target="github" class="project-section-hlink">https://github.com/AbsolutDev/rn-pizza-factory</a>
                   </div>
                   <div class="project-section-title">
                     Snack
                   </div>
                   <div class="project-section-text">
                     <a href="https://snack.expo.dev/@giliescu77/80771a"
-                      target="expo">https://snack.expo.dev/@giliescu77/80771a</a>
+                      target="expo" class="project-section-hlink">https://snack.expo.dev/@giliescu77/80771a</a>
                   </div>
                 </div>
               </div>
@@ -858,9 +864,8 @@
         <div class="section-container">
           <div id="contact-title-section">
             <div id="contact-title">Send me a message</div>
-            <div id="contact-title-subtext">Got a question, a proposal or just want to say hello? Drop me a message.
+            <div id="contact-title-subtext">Got a question, a proposal or just want to say hello?
             </div>
-
           </div>
           <form id="contact-form" action="#" enctype="multipart/form-data" method="POST">
             <div id="contact-form-top">
@@ -869,33 +874,29 @@
                 <input id="form-name" name="name" type="text">
               </div>
               <div id="form-email-container" class="form-half-container">
-                <label for="form-email">E-mail</label>
+                <label for="form-email">E-mail Address</label>
                 <input id="form-email" name="email" type="email" required>
               </div>
             </div>
             <div id="contact-form-message">
               <label for="form-message">Message</label>
-              <textarea id="form-message" name="message" required rows="8"></textarea>
+              <textarea id="form-message" name="message" required rows="6"></textarea>
+              <div id="powered-by-basin">Powered by <a href="https://usebasin.com/" target="_blank">Basin</a></div>
             </div>
             <div id="contact-form-bottom">
-
               <div id="form-submit-visor">
                 <div id="form-submit-bg"></div>
                 <div id="form-submit-fg">Submit</div>
                 <input id="form-submit" type="submit">
               </div>
-              <div id="basin-logo">
-                <a href="https://usebasin.com/" target="_blank">
-                  <img src="./assets/logos/basin.png" alt="Powered by Basin" />
-                </a>
-              </div>
             </div>
           </form>
         </div>
+        <div id="footer-copyright">&#169 2024 Gabriel Iliescu</div>
       </div>
     </div>
 
-    <div id="nav-menu">
+    <div id="nav-menu" class="prevent-select">
       <div id="nav-button">
         <div class="nav-button-line"></div>
         <div class="nav-button-line"></div>
@@ -924,21 +925,41 @@
             <div class="nav-mark"></div>
           </div>
         </div>
+        <div id="nav-contact-icons-container">
+          <div class="contact-icon-container">
+            <a href="mailto:absolutdev.io@gmail.com">
+              <div class="contact-icon">@</div>
+            </a>
+          </div>
+          <div class="contact-icon-container">
+            <a href="https://www.linkedin.com/in/giliescu/" target="_blank">
+              <div class="contact-icon">in</div>
+            </a>
+          </div>
+          <div class="contact-icon-container">
+            <a href="https://github.com/AbsolutDev" target="_blank">
+              <div class="contact-icon" id="contact-github"></div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div id="contact-icons-container">
       <div class="contact-icon-container">
-        <div class="contact-icon">@</div>
-        <div class="contact-icon-caption">e-mail</div>
+        <a href="mailto:absolutdev.io@gmail.com">
+          <div class="contact-icon">@</div>
+        </a>
       </div>
       <div class="contact-icon-container">
-        <div class="contact-icon">in</div>
-        <div class="contact-icon-caption">linked-in</div>
+        <a href="https://www.linkedin.com/in/giliescu/" target="_blank">
+          <div class="contact-icon">in</div>
+        </a>
       </div>
       <div class="contact-icon-container">
-        <div class="contact-icon" id="contact-github"></div>
-        <div class="contact-icon-caption">git-hub</div>
+        <a href="https://github.com/AbsolutDev" target="_blank">
+          <div class="contact-icon" id="contact-github"></div>
+        </a>
       </div>
     </div>
   </div>
