@@ -2,7 +2,7 @@ const skillsList = ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'REDUX', 'VUE.JS', 'TY
 const skillsSideElement = document.getElementById('skills-side');
 const enterButton = document.getElementById('enter-button-container');
 const modeButton = document.getElementById('mode-button');
-const skipIntro = true;
+const skipIntro = false;
 
 const themeNames = ['theme-plain', 'theme-about', 'theme-skills', 'theme-projects', 'theme-contact'];
 const sectionTitles = ['Welcome', 'About', 'Skills', 'Portfolio', 'Contact'];
@@ -16,7 +16,6 @@ let scrollY = 0;
 let scrollOnHold = false;
 
 let darkTheme = false;
-document.body.classList.add('ddark');
 
 const screenIsLandscape = window.innerWidth / innerHeight >= 1.25 ? true : false;
 
@@ -41,8 +40,6 @@ switch (deviceType) {
     document.body.classList.add('is-tablet');
     break;
   default:
-    //document.body.classList.add('is-mobile');
-    //isMobile = true;
     document.body.classList.add('is-computer');
     break;
 }
